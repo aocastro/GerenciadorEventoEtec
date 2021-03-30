@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="libs/MaterialDesign-Webfont-master/css/materialdesignicons.css">
@@ -12,59 +13,146 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <img src="img/logo.png" alt="">
-            <main role="main" class="conteiner">
-                <div class="my-3 p-3 bg-white rounded shadow ">
-                    <h4 class="border-bottom border-danger pb-2 mb-0">EVENTOS PRÓXIMOS</h4>
-                    <div class="media text-muted pt-3">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-danger">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-dark">Evento próximo</strong>
-                            </div>
-                            <span class="d-block">15/05/2021</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-danger">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-dark">Evento próximo</strong>
-                            </div>
-                            <span class="d-block">15/05/2021</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-danger">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-dark">Evento próximo</strong>
-                            </div>
-                            <span class="d-block">15/05/2021</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-danger">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-dark">Evento próximo</strong>
-                            </div>
-                            <span class="d-block">15/05/2021</span>
-                        </div>
-                    </div>
-                    <small class="d-block text-right mt-3">
-                    <button type="button" class="btn btn-danger">Saiba Mais</button>
-            </small>
-                </div>
-            </main>
+    <!--Navbar inicio-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="img/logo.png" width="17%" alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="mdi mdi-home"></i> Home <span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="mdi mdi-account"></i> Login</a>
+                </li>
+            </ul>
+            <button class="botao" type="submit">Cadastre-se</button>
 
         </div>
+    </nav>
+    <!--Navbar fim-->
+    <div class="corta-linha"></div>
+
+    <!-- Painel -->
+    <section class="pt-4 pt-md-11">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-5 col-lg-6 order-md-2">
+
+                    <!-- Imagem -->
+                    <img src="img/img3.svg" class="img-fluid ">
+
+                </div>
+                <div class="col-12 col-md-7 col-lg-6 order-md-1" data-aos="fade-up">
+
+                    <!-- Heading -->
+                    <div class="conteiner mt-5">
+                        <h1 class="display-3 text-center text-md-left">
+                            Bem-vindo a <span class="">Elevent</span><br>
+                        </h1>
+                    </div>
+                    <!-- Text -->
+                    <p class="lead text-center text-md-left text-muted mb-6 mb-lg-8">
+                        Somos um aplicativo de gerenciamento de eventos, mais especificamente para a Etec de Lins, do Centro Paula Souza.
+                    </p>
+
+                    <!-- Button -->
+                    <div class="text-center text-md-left">
+                        <button class="btn">Saiba mais</button>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </section>
+
+    <!-- Conteudo Inicio-->
+    <div class="container">
+        <div class="row col-10 col-md-8 ">
+            <table class="table table-hover bg-danger text-white table2">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Primeiro</th>
+                        <th scope="col">Último</th>
+                        <th scope="col">Nickname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <hr width="100%">
+    <footer class="container py-5">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img src="img/icone.png" width="15%" alt="">
+                <small class="d-block mb-3 text-muted">&copy; 2021-2022</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Outros</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Negócios</a></li>
+                    <li><a class="text-muted" href="#">Educação</a></li>
+                    <li><a class="text-muted" href="#">Governo</a></li>
+                    <li><a class="text-muted" href="#">Jogos</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Sobre</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Equipe</a></li>
+                    <li><a class="text-muted" href="#">Locais</a></li>
+                    <li><a class="text-muted" href="#">Privacidade</a></li>
+                    <li><a class="text-muted" href="#">Termos</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- fim footer -->
+    <div class="fim ">
+        <div class="linha"></div>
+        <div class="col-md-12 pt-4 pb-2 text-center text-white">
+            <p>Desenvolvido por <b>Nucleo de Pesquisa e Desenvolvimento</b> da Etec de Lins.<br><b>Alunos:</b> Karen Ayane, Nicolas Tomita, Nicole Becker e Yuri Santiago<br> Prof. Orientador: Adriano Oliveira Castro.</p>
+        </div>
+    </div>
+    <div class="fim2 text-white text-center">
+        <p>© Copyright 2021 Etec Lins - Todos os direitos reservados.</p>
     </div>
 
 
 </body>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery-3.5.1.js"></script>
-<script src="libs/sweetalert-master/src/sweetalert.js"></script>
+<script src="js/bootstrap.js "></script>
+<script src="js/jquery-3.5.1.js "></script>
+<script src="libs/sweetalert-master/src/sweetalert.js "></script>
 </body>
 
 </html>
