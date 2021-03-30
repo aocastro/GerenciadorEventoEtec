@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="libs/MaterialDesign-Webfont-master/css/materialdesignicons.css">
     <link rel="stylesheet" href="libs/sweetalert-master/src/sweetalert.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Elevent</title>
 </head>
 
@@ -59,13 +60,6 @@
                     <p class="lead text-center text-md-left text-muted mb-6 mb-lg-8">
                         Somos um aplicativo de gerenciamento de eventos, mais especificamente para a Etec de Lins, do Centro Paula Souza.
                     </p>
-
-                    <!-- Button -->
-                    <div class="text-center text-md-left">
-                        <button class="btn">Saiba mais</button>
-
-                    </div>
-
                 </div>
             </div>
             <!-- / .row -->
@@ -73,38 +67,58 @@
         <!-- / .container -->
     </section>
 
+    <div class="icon-bar">
+        <a href="#" class="whatsapp"><i class="mdi mdi-whatsapp"></i></a>
+        <a href="https://www.facebook.com/etecdelins.lins1" class="facebook"><i class="mdi mdi-facebook"></i></a>
+        <a href="https://www.instagram.com/etec_lins/" class="instagram"><i class="mdi mdi-instagram"></i></a>
+
+    </div>
+    <div>
+        <h1 class="text-center mt-5 mb-5">Eventos Próximos</h1>
+    </div>
     <!-- Conteudo Inicio-->
     <div class="container">
-        <div class="row col-10 col-md-8 ">
-            <table class="table table-hover bg-danger text-white table2">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Primeiro</th>
-                        <th scope="col">Último</th>
-                        <th scope="col">Nickname</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table bg-danger text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>VOCÊ NA ETEC</td>
+                            <td>22/08/2021</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>LINUX ESSENTIALS</td>
+                            <td>23/07/2021</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>EVENTO PROFESSORES</td>
+                            <td>03/06/2021</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>ALGUM EVENTO</td>
+                            <td>12/04/2021</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>OUTRO EVENTO</td>
+                            <td>30/07/2021</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -117,35 +131,33 @@
                 <small class="d-block mb-3 text-muted">&copy; 2021-2022</small>
             </div>
             <div class="col-6 col-md">
-                <h5>Outros</h5>
+                <h5>Informações</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Negócios</a></li>
-                    <li><a class="text-muted" href="#">Educação</a></li>
-                    <li><a class="text-muted" href="#">Governo</a></li>
-                    <li><a class="text-muted" href="#">Jogos</a></li>
+                    <li><a class="text-muted" href="http://www.eteclins.com.br/2021/index.html">Site da Escola</a></li>
+                    <li><a class="text-muted" href="https://nsa.cps.sp.gov.br/">NSA</a></li>
+                    <li><a class="text-muted" href="#">E-mail: e148.dir@cps.sp.gov.br</a></li>
+
                 </ul>
             </div>
             <div class="col-6 col-md">
-                <h5>Sobre</h5>
+                <h5>Outros</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Equipe</a></li>
-                    <li><a class="text-muted" href="#">Locais</a></li>
-                    <li><a class="text-muted" href="#">Privacidade</a></li>
-                    <li><a class="text-muted" href="#">Termos</a></li>
+                    <li><a class="text-muted" href="https://portaldoparticipante.cps.sp.gov.br/Start">Portal do Participante</a></li>
+                    <li><a class="text-muted" href="http://www.eteclins.com.br/2021/portalAluno.html">Portal do Aluno</a></li>
                 </ul>
             </div>
         </div>
         </div>
     </footer>
     <!-- fim footer -->
+
     <div class="fim ">
-        <div class="linha"></div>
         <div class="col-md-12 pt-4 pb-2 text-center text-white">
             <p>Desenvolvido por <b>Nucleo de Pesquisa e Desenvolvimento</b> da Etec de Lins.<br><b>Alunos:</b> Karen Ayane, Nicolas Tomita, Nicole Becker e Yuri Santiago<br> Prof. Orientador: Adriano Oliveira Castro.</p>
         </div>
     </div>
-    <div class="fim2 text-white text-center">
-        <p>© Copyright 2021 Etec Lins - Todos os direitos reservados.</p>
+    <div class="fim2 footer-copyright text-center text-white py-3">
+        © Copyright 2021 Etec Lins - Todos os direitos reservados.
     </div>
 
 

@@ -82,6 +82,50 @@ form {
 }
 
 
+/* barra redes sociais */
+
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+}
+
+.icon-bar a:hover {
+    background-color: rgba(255, 255, 255, 0.658);
+}
+
+.facebook {
+    background-image: linear-gradient( 109.6deg, rgba(62, 161, 219, 1) 11.2%, rgba(93, 52, 236, 1) 100.2%);
+    color: white;
+}
+
+.instagram {
+    background-image: linear-gradient( 109.6deg, rgba(116, 18, 203, 1) 11.2%, rgba(230, 46, 131, 1) 91.2%);
+    color: white;
+}
+
+.whatsapp {
+    background-image: radial-gradient( circle farthest-corner at -1% 57.5%, rgba(19, 170, 82, 1) 0%, rgba(0, 102, 43, 1) 90%);
+    color: white;
+}
+
+.content {
+    margin-left: 75px;
+    font-size: 30px;
+}
+
+
 /* responsividade */
 
 @media screen and (max-width: 1050px) {
@@ -186,14 +230,13 @@ hr {
 /* footer */
 
 .fim {
-    height: 130px;
+    height: 15%;
     background: rgb(217, 0, 0);
     background: radial-gradient(circle, rgba(217, 0, 0, 1) 0%, rgba(121, 9, 9, 1) 100%);
 }
 
 .fim2 {
-    height: 50px;
+    height: 10%;
     background: rgb(143, 0, 0);
     background: radial-gradient(circle, rgba(143, 0, 0, 1) 0%, rgba(128, 4, 4, 1) 51%, rgba(121, 9, 9, 1) 100%);
-    align-items: center;
 }
