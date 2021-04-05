@@ -86,6 +86,7 @@ form {
 
 .icon-bar {
     position: fixed;
+    z-index: 4;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -127,27 +128,6 @@ form {
 
 
 /* responsividade */
-
-@media screen and (max-width: 1050px) {
-    .container {
-        grid-gap: 5rem;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .img img {
-        width: 400px;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
-    .img {
-        display: none;
-    }
-}
 
 
 /* Letras */
