@@ -1,21 +1,14 @@
 <?php
 
-    echo '<hr>';
-    echo 'Trabalhando com PDO';
-    echo '<hr>';
+    $hostname= "f30-preview.awardspace.net";
+    $dbname= "3762242_elevent";
+    $username= "3762242_elevent";
+    $password= "elevent123456";
 
-    /* TRABALHANDO ACESSO AO BANCO COM PDO */
-    $link = new PDO("mysql:host=fdb30.awardspace.net;dbname=3762242_elevent", "3762242_elevent", "elevent123456");
-    $link->exec("SET CHARACTER SET utf8");
-
-    $query = $link->prepare("SELECT * FROM endereco");
-    
-    $query->execute();
-
-    $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach( $res as $lista)
-        {
-            echo '<br>';
-            echo $lista['rua'];
-        }
+    try{
+        $pdo = new PDO('mysql:host='.$hostname.';dbname='.$dbname, $username, $password);
+        $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo 'conectado';
+    } catch(PDOException $e){
+        echo 'Erro:'.$e-> getMessage();
+    }
