@@ -1,6 +1,6 @@
 <?php
 
-    $hostname= "f30-preview.awardspace.net";
+    $hostname= "fdb30.awardspace.net";
     $dbname= "3762242_elevent";
     $username= "3762242_elevent";
     $password= "elevent123456";
