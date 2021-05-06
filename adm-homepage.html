@@ -12,97 +12,201 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="libs/fontAwesome/css/all.css">
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        body {
+            background: #f3f4f8;
+            color: #374049;
+        }
+        
+        .wrapper {
+            position: fixed;
+            left: 0;
+            width: 265px;
+            height: 100%;
+            background: #fff;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.06);
+        }
+        
+        .wrapper .navbar {
+            position: relative;
+        }
+        
+        .title-1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-size: 20px;
+            font-style: normal;
+            margin-top: 16px;
+            color: #374049;
+            font-family: 'Share Tech Mono', monospace;
+        }
+        
+        .wrapper .navbar .profile_wrap {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .wrapper .navbar .profile_wrap .profile_img {
+            width: 70px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        
+        .wrapper .navbar .profile_wrap .profile_img img {
+            width: 100%;
+        }
+        
+        .wrapper .navbar .profile_wrap .profile_info .name {
+            font-size: 17px;
+            text-transform: capitalize;
+            font-weight: 800;
+            color: #374049;
+        }
+        
+        .wrapper .navbar .profile_wrap .profile_info .role {
+            font-weight: 600;
+            font-size: 15px;
+            color: #90959b;
+        }
+        
+        .wrapper .navbar ul {
+            padding: 10px 40px;
+        }
+        
+        .wrapper .navbar ul li>a {
+            display: block;
+            position: relative;
+            font-size: 14px;
+            padding: 15px;
+            height: 50px;
+            color: #9ca0a5;
+            font-weight: 600;
+            transition: all 2s ease;
+        }
+        
+        .wrapper .navbar ul li a span.icon {
+            margin-right: 10px;
+        }
+        
+        .wrapper .navbar ul li a>span {
+            display: inline-block;
+        }
+        
+        a.active .icon,
+        a:hover .icon {
+            color: #ffad41;
+        }
+        
+        a.active .title,
+        a:hover .title {
+            color: #374049;
+            font-weight: 800;
+        }
+        
+        .navbar ul li:nth-child(1)>a:hover .icon {
+            color: #01ec3f;
+        }
+        
+        .navbar ul li:nth-child(3)>a:hover .icon {
+            color: royalblue;
+        }
+        
+        .navbar ul li:nth-child(4)>a:hover .icon {
+            color: #ff375c;
+        }
+        
+        .navbar ul li:nth-child(5)>a:hover .icon {
+            color: #41ffed;
+        }
+        
+        .navbar ul li:nth-child(6)>a:hover .icon {
+            color: #ff5100;
+        }
+        
+        .navbar ul li:nth-child(7)>a:hover .icon {
+            color: #e65aff;
+        }
+        
+        .navbar ul li:nth-child(8)>a:hover .icon {
+            color: #ff4141;
+        }
+    </style>
+
 </head>
 
 
 <body>
 
-    <div class="sidebar">
-        <div class="sidebar-marca">
-            <h1><span class="fas fa-calendar-check"></span>Elevent</h1>
-        </div>
+    <div class="wrapper">
 
-        <div class="sidebar-menu">
+        <div class="navbar">
+            <h1 class="title-1">Elevent</h1>
+            <div class="profile_wrap">
+                <div class="profile_img">
+                    <img src="img/avatar-teste.svg" alt="">
+                </div>
+                <div class="profile_info">
+                    <h2 class="name">Garreth Riley</h2>
+                    <p class="role">Administrator</p>
+                </div>
+            </div>
+
             <ul>
                 <li>
-                    <a href=""><span><i class="menu__icon fa fa-home"></i></span>
-                        <span>Dashboard</span></a>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-home"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
                 </li>
                 <li>
-                    <a href=""><span><i class="menu__icon fa fa-envelope"></i></span>
-                        <span>Fornecedores</span></a>
+                    <a href="#">
+                        <span class="icon"><i class="far fa-envelope"></i></span>
+                        <span class="title">Fornecedores</span>
+                    </a>
                 </li>
                 <li>
-                    <a href=""><span><i class="menu__icon fa fa-list"></i></span>
-                        <span>Checklist</span></a>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-list"></i></span>
+                        <span class="title">Checklist</span>
+                    </a>
                 </li>
                 <li>
-                    <a href=""><span><i class="menu__icon fa fa-calendar"></i></span>
-                        <span>Agenda</span></a>
+                    <a href="#">
+                        <span class="icon"><i class="far fa-calendar"></i></span>
+                        <span class="title">Agenda</span>
+                    </a>
                 </li>
                 <li>
-                    <a href=""><span><i class="menu__icon fa fa-user-friends"></i></span>
-                        <span>Participantes</span></a>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-users"></i></span>
+                        <span class="title">Participantes</span>
+                    </a>
                 </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-cog"></i></span>
+                        <span class="title">Setting</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
-    </div>
-    <div class="main-content">
-        <header>
-            <h1>
-                <label for="">
-                    <span><i class="fas fa-bars"></i></span>
-                </label> Dashboard
-            </h1>
 
-            <div class="search-wrapper">
-                <span><i class="fas fa-search"></i></span>
-                <input type="search" placeholder="Search here">
-            </div>
-
-            <div class="user-wrapper">
-                <img src="" alt="" id="" width="40px" height="30px">
-                <div>
-                    <h4 id="">algum nome</h4>
-                    <small>Admin</small>
-                </div>
-            </div>
-        </header>
-
-        <main>
-
-            <div class="cards">
-                <div class="card-single">
-                    <div>
-                        <h1 id="">54</h1>
-                        <span>Em progresso</span>
-                    </div>
-                    <div>
-                        <span><i class="fas fa-tasks"></i></span>
-                    </div>
-                </div>
-                <div class="card-single">
-                    <div>
-                        <h1 id="">18</h1>
-                        <span>Próximos</span>
-                    </div>
-                    <div>
-                        <span><i class="fas fa-calendar-day"></i></span>
-                    </div>
-                </div>
-                <div class="card-single">
-                    <div>
-                        <h1 id="">180</h1>
-                        <span>Total de Eventos</span>
-                    </div>
-                    <div>
-                        <span><i class="fas fa-calendar-alt"></i></span>
-                    </div>
-                </div>
-
-            </div>
-
-        </main>
     </div>
 
 
