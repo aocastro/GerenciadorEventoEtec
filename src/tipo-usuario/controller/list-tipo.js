@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#nomeID').DataTable({
+    $('#table-tipo').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
