@@ -1,15 +1,16 @@
 $(document).ready(function() {
-    $('.nav-link').click(function(e) {
 
+    $('.nav-link').click(function(e) {
         e.preventDefault()
 
-        // Capturando o link
+        // Capturar o link do elemento
         let url = $(this).attr('href')
 
-        // Limpando a div container com o id conteudo
+        // Limpar a div container com o id conteudo
         $('#conteudo').empty()
 
-        // Inserindo o novo conteúdo dentro de id conteudo
+        // Inserir o novo conteúdo dentro da div id conteudo
         $('#conteudo').load(url)
+
     })
 })

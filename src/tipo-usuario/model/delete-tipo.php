@@ -1,7 +1,7 @@
 <?php
 
 //Instância do banco de dados
-include("../../conexao/cone.php");
+include("../../conexao/conn.php");
 
 //Coleta do id que será excluido do nosso banco de dados que está sendo enviado pelo FORM
     $ID = $_REQUEST['idTipo'];

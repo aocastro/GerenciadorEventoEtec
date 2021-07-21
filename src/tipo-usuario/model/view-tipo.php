@@ -1,7 +1,7 @@
 <?php
 
     // Inclusão do banco de dados
-    include('../../conexao/cone.php');
+    include('../../conexao/conn.php');
 
     // Executo a recepção do id a ser buscado no banco de dados
     $ID = $_REQUEST['idTipo'];

@@ -1,7 +1,7 @@
 <?php
 
     // Obter a nossa conexão com o banco de dados
-    include('../../conexao/cone.php');
+    include('../../conexao/conn.php');
 
     // Obter os dados enviados do formulário via $_REQUEST
     $requestData = $_REQUEST;
@@ -22,9 +22,9 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO tipo (nomeTipo) VALUES (:nomeTipo)');
+                $stmt = $pdo->prepare('INSERT INTO tipo (nomeTipo) VALUES (:a)');
                 $stmt->execute(array(
-                    ':nomeTipo' => utf8_decode($requestData['nomeTipo'])
+                    ':a' => utf8_decode($requestData['nomeTipo'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -39,10 +39,10 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE tipo SET nomeTipo = :nomeTipo WHERE idTipo = :id');
+                $stmt = $pdo->prepare('UPDATE tipo SET nomeTipo = :a WHERE idTipo = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':nomeTipo' => utf8_decode($requestData['nomeTipo'])
+                    ':a' => utf8_decode($requestData['nomeTipo'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
