@@ -1,10 +1,11 @@
 $(document).ready(function() {
-    $('.nav-link').click(function(e) {
+    $('.nav_link').click(function(e) {
 
         e.preventDefault()
 
         // Capturando o link
         let url = $(this).attr('href')
+            // alert('Você clicou')
 
         // Limpando a div container com o id conteudo
         $('#conteudo').empty()
