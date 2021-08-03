@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-12 col-md-9">
                             <h4 class="text-dark">
-                                Gerenciar Tipos usuarios
+                                Gerenciar Tipos de Usuários
                             </h4>
                         </div>
                         <div class="col-12 col-md-3">
@@ -22,7 +22,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col" class="text-center">ID</th>
-                                    <th scope="col" class="text-center">DESCRICAO</th>
+                                    <th scope="col" class="text-center">NOME</th>
                                     <th scope="col" class="text-center">AÇÕES</th>
                                 </tr>
                             </thead>
@@ -34,25 +34,24 @@
     </div>
 </div>
 
-<div id="modal-tipo" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<div id="modal-tipo" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="my-modal-title">Title</h5>
-                <button class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="my-modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Content</p>
+                ...
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times-circle"></i> Fechar</button>
-                <button class="btn btn-success btn-save"><i class="fas fa-save"></i> Salvar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times-circle"></i>Fechar</button>
+                <button type="button" class="btn btn-success btn-save"><i class="fas fa-save"></i>Salvar</button>
             </div>
         </div>
     </div>
 </div>
+
 
 <script src="src/tipo-usuario/controller/list-tipo.js"></script>
 <script src="src/tipo-usuario/controller/new-tipo.js"></script>
