@@ -1,11 +1,11 @@
-/*! DataTables 1.10.25
+/*! DataTables 1.10.24
  * ©2008-2021 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     DataTables
  * @description Paginate, search and order HTML tables
- * @version     1.10.25
+ * @version     1.10.24
  * @file        jquery.dataTables.js
  * @author      SpryMedia Ltd
  * @contact     www.datatables.net
@@ -1253,7 +1253,7 @@
 			
 				var tbody = $this.children('tbody');
 				if ( tbody.length === 0 ) {
-					tbody = $('<tbody/>').insertAfter(thead);
+					tbody = $('<tbody/>').appendTo($this);
 				}
 				oSettings.nTBody = tbody[0];
 			
@@ -2308,9 +2308,8 @@
 						}
 	
 						// Only a single match is needed for html type since it is
-						// bottom of the pile and very similar to string - but it
-						// must not be empty
-						if ( detectedType === 'html' && ! _empty(cache[k]) ) {
+						// bottom of the pile and very similar to string
+						if ( detectedType === 'html' ) {
 							break;
 						}
 					}
@@ -3415,10 +3414,9 @@
 	/**
 	 * Insert the required TR nodes into the table for display
 	 *  @param {object} oSettings dataTables settings object
-	 *  @param ajaxComplete true after ajax call to complete rendering
 	 *  @memberof DataTable#oApi
 	 */
-	function _fnDraw( oSettings, ajaxComplete )
+	function _fnDraw( oSettings )
 	{
 		/* Provide a pre-callback function which can be used to cancel the draw is false is returned */
 		var aPreDraw = _fnCallbackFire( oSettings, 'aoPreDrawCallback', 'preDraw', [oSettings] );
@@ -3467,9 +3465,8 @@
 		{
 			oSettings.iDraw++;
 		}
-		else if ( !oSettings.bDestroying && !ajaxComplete)
+		else if ( !oSettings.bDestroying && !_fnAjaxUpdate( oSettings ) )
 		{
-			_fnAjaxUpdate( oSettings );
 			return;
 		}
 	
@@ -4001,16 +3998,21 @@
 	 */
 	function _fnAjaxUpdate( settings )
 	{
-		settings.iDraw++;
-		_fnProcessingDisplay( settings, true );
+		if ( settings.bAjaxDataGet ) {
+			settings.iDraw++;
+			_fnProcessingDisplay( settings, true );
 	
-		_fnBuildAjax(
-			settings,
-			_fnAjaxParameters( settings ),
-			function(json) {
-				_fnAjaxUpdateDraw( settings, json );
-			}
-		);
+			_fnBuildAjax(
+				settings,
+				_fnAjaxParameters( settings ),
+				function(json) {
+					_fnAjaxUpdateDraw( settings, json );
+				}
+			);
+	
+			return false;
+		}
+		return true;
 	}
 	
 	
@@ -4163,12 +4165,14 @@
 		}
 		settings.aiDisplay = settings.aiDisplayMaster.slice();
 	
-		_fnDraw( settings, true );
+		settings.bAjaxDataGet = false;
+		_fnDraw( settings );
 	
 		if ( ! settings._bInitComplete ) {
 			_fnInitComplete( settings, json );
 		}
 	
+		settings.bAjaxDataGet = true;
 		_fnProcessingDisplay( settings, false );
 	}
 	
@@ -6097,7 +6101,7 @@
 		{
 			var col = columns[i];
 			var asSorting = col.asSorting;
-			var sTitle = col.ariaTitle || col.sTitle.replace( /<.*?>/g, "" );
+			var sTitle = col.sTitle.replace( /<.*?>/g, "" );
 			var th = col.nTh;
 	
 			// IE7 is throwing an error when setting these properties with jQuery's
@@ -9531,7 +9535,7 @@
 	 *  @type string
 	 *  @default Version number
 	 */
-	DataTable.version = "1.10.25";
+	DataTable.version = "1.10.24";
 
 	/**
 	 * Private data store, containing all of the settings objects that are
@@ -13613,6 +13617,13 @@
 		"sAjaxDataProp": null,
 	
 		/**
+		 * Note if draw should be blocked while getting data
+		 *  @type boolean
+		 *  @default true
+		 */
+		"bAjaxDataGet": true,
+	
+		/**
 		 * The last jQuery XHR object that was used for server-side data gathering.
 		 * This can be used for working with the XHR information in one of the
 		 * callbacks
@@ -15041,11 +15052,6 @@
 					var floatPart = precision ?
 						decimal+(d - intPart).toFixed( precision ).substring( 2 ):
 						'';
-	
-					// If zero, then can't have a negative prefix
-					if (intPart === 0 && parseFloat(floatPart) === 0) {
-						negative = '';
-					}
 	
 					return negative + (prefix||'') +
 						intPart.toString().replace(
