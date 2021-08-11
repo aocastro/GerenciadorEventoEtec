@@ -1,11 +1,11 @@
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`tipo` (
-  `idTipo` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `tipo` (
+  `idTipo` INT NOT NULL AUTO_INCREMENT,
   `nomeTipo` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`idTipo`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`participante` (
-  `idParticipante` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `participante` (
+  `idParticipante` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(55) NOT NULL,
   `cpf` VARCHAR(20) NOT NULL,
   `telefone` VARCHAR(45) NOT NULL,
@@ -17,12 +17,12 @@ CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`participante` (
   INDEX `fk_participante_tipo1_idx` (`idTipo` ASC),
   CONSTRAINT `fk_participante_tipo1`
     FOREIGN KEY (`idTipo`)
-    REFERENCES `epiz_28910013_elevent`.`tipo` (`idTipo`)
+    REFERENCES `tipo` (`idTipo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`fornecedor` (
+CREATE TABLE IF NOT EXISTS `fornecedor` (
   `idFornecedor` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `endereco` VARCHAR(100) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`fornecedor` (
 ENGINE = InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`evento` (
+CREATE TABLE IF NOT EXISTS `evento` (
   `idEvento` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `data` DATE NOT NULL,
@@ -48,15 +48,15 @@ CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`evento` (
 ENGINE = InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`checklist` (
-  `idChecklist` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `checklist` (
+  `idChecklist` INT NOT NULL AUTO_INCREMENT,
   `objeto` VARCHAR(45) NOT NULL,
   `tarefa` LONGTEXT NOT NULL,
   PRIMARY KEY (`idChecklist`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`servico` (
-  `idProduto` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `servico` (
+  `idProduto` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `evento` INT NOT NULL,
   `fornecedor` INT NOT NULL,
@@ -65,44 +65,44 @@ CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`servico` (
   PRIMARY KEY (`idProduto`),
   CONSTRAINT `fk_Eventos_has_Fornecedor_Eventos1`
     FOREIGN KEY (`evento`)
-    REFERENCES `epiz_28910013_elevent`.`evento` (`idEvento`)
+    REFERENCES `evento` (`idEvento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Eventos_has_Fornecedor_Fornecedor1`
     FOREIGN KEY (`fornecedor`)
-    REFERENCES `epiz_28910013_elevent`.`fornecedor` (`idFornecedor`)
+    REFERENCES `fornecedor` (`idFornecedor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`endereco` (
-  `idEndereco` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `endereco` (
+  `idEndereco` INT NOT NULL AUTO_INCREMENT,
   `rua` VARCHAR(45) NOT NULL,
   `bairro` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idEndereco`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`evento_has_checklist` (
-  `idEvento` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `evento_has_checklist` (
+  `idEvento` INT NOT NULL AUTO_INCREMENT,
   `idChecklist` INT NOT NULL,
   PRIMARY KEY (`idEvento`, `idChecklist`),
   INDEX `fk_evento_has_checklist_checklist1_idx` (`idChecklist` ASC),
   INDEX `fk_evento_has_checklist_evento1_idx` (`idEvento` ASC),
   CONSTRAINT `fk_evento_has_checklist_evento1`
     FOREIGN KEY (`idEvento`)
-    REFERENCES `epiz_28910013_elevent`.`evento` (`idEvento`)
+    REFERENCES `evento` (`idEvento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_evento_has_checklist_checklist1`
     FOREIGN KEY (`idChecklist`)
-    REFERENCES `epiz_28910013_elevent`.`checklist` (`idChecklist`)
+    REFERENCES `checklist` (`idChecklist`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`inscricao` (
-  `idEvento` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `inscricao` (
+  `idEvento` INT NOT NULL AUTO_INCREMENT,
   `idParticipante` INT NOT NULL,
   `dataInscricao` DATE NOT NULL,
   `horaInscricao` TIME NOT NULL,
@@ -111,12 +111,12 @@ CREATE TABLE IF NOT EXISTS `epiz_28910013_elevent`.`inscricao` (
   INDEX `fk_evento_has_participante_evento1_idx` (`idEvento` ASC),
   CONSTRAINT `fk_evento_has_participante_evento1`
     FOREIGN KEY (`idEvento`)
-    REFERENCES `epiz_28910013_elevent`.`evento` (`idEvento`)
+    REFERENCES `evento` (`idEvento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_evento_has_participante_participante1`
     FOREIGN KEY (`idParticipante`)
-    REFERENCES `epiz_28910013_elevent`.`participante` (`idParticipante`)
+    REFERENCES `participante` (`idParticipante`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -16,99 +16,122 @@
 </head>
 
 
-<body id="body-pd">
-
-    <header class="header" id="header">
-        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-        <div class="header_img"> <img src="https://i.imgur.com/SlBMGqj.jpeg" alt=""> </div>
-    </header>
-    <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div>
-                <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">ELEVENT</span> </a>
-                <div class="nav_list">
-                    <a href="#" class="nav_link active"> <i class='bx bxs-home nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
-                    <a href="#" class="nav_link"> <i class='bx bxs-truck nav_icon'></i> <span class="nav_name">Fornecedores</span> </a>
-                    <a href="#" class="nav_link"> <i class='bx bx-list-ul nav_icon'></i> <span class="nav_name">Checklist</span> </a>
-                    <a href="#" class="nav_link"> <i class='bx bxs-calendar nav_icon'></i> <span class="nav_name">Agenda</span> </a>
-                    <a href="src/tipo-usuario/view/list-tipo.html" class="nav_link"> <i class='bx bxs-group nav_icon'></i> <span class="nav_name">Participantes</span> </a>
-                    <a href="#" class="nav_link"> <i class='bx bxs-cog nav_icon'></i> <span class="nav_name">Configurações</span> </a>
-                </div>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3 class="nav_logo-name"> <i class='bx bx-layer nav_logo-icon'></i><span class='nav_span'> ELEVENT</span></h3>
+                <strong> <i class='bx bx-layer nav_logo-icon'></i></strong>
             </div>
-            <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span> </a>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <li>
+                        <a href="../adm-homepage.html">
+                            <i class='bx bxs-home nav_icon'></i></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class='bx bxs-truck nav_icon'></i> Fornecedores
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class='bx bx-list-ul nav_icon'></i>Checklist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class='bx bxs-calendar nav_icon'></i> Agenda
+                        </a>
+                    </li>
+                    <li>
+                        <a href="src/tipo-usuario/view/list-tipo.html" class="nav_link">
+                            <i class='bx bxs-group nav_icon'></i> Participantes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class='bx bxs-cog nav_icon'></i> Configurações
+                        </a>
+                    </li>
+            </ul>
+
         </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn bg-light">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <header class="header2 ">
+                <div class="text-box">
+                    <h1 class="heading-primary">
+                        <span class="heading-primary-main">Use o Elevent como aplicativo</span>
+                        <span class="heading-primary-sub">Clique no botão para baixar</span>
+                    </h1>
+                    <a href="#" class="btn btn-white btn-animated">Baixe o Elevent aqui!</a>
+                </div>
+            </header>
+            <!-- jumbotron fim -->
+
+            <!-- status inicio -->
+
+
+            <!-- status fim -->
+        </div>
     </div>
-    <!--Container menu começo-->
-    <div id="conteudo">
-        <!-- jumbotron inicio -->
-        <header class="header2 ">
-            <div class="text-box">
-                <h1 class="heading-primary">
-                    <span class="heading-primary-main">Use o Elevent como aplicativo</span>
-                    <span class="heading-primary-sub">Clique no botão para baixar</span>
-                </h1>
-                <a href="#" class="btn btn-white btn-animated">Baixe o Elevent aqui!</a>
-            </div>
-        </header>
-        <!-- jumbotron fim -->
 
-        <!-- status inicio -->
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 
-
-        <!-- status fim -->
-
-    </div>
-
-    <!--Container menu fim-->
-    <script type='text/javascript'>
-        document.addEventListener("DOMContentLoaded", function(event) {
-
-            const showNavbar = (toggleId, navId, bodyId, headerId) => {
-                const toggle = document.getElementById(toggleId),
-                    nav = document.getElementById(navId),
-                    bodypd = document.getElementById(bodyId),
-                    headerpd = document.getElementById(headerId)
-
-                // Validate that all variables exist
-                if (toggle && nav && bodypd && headerpd) {
-                    toggle.addEventListener('click', () => {
-                        // show navbar
-                        nav.classList.toggle('show')
-                            // change icon
-                        toggle.classList.toggle('bx-x')
-                            // add padding to body
-                        bodypd.classList.toggle('body-pd')
-                            // add padding to header
-                        headerpd.classList.toggle('body-pd')
-                    })
-                }
-            }
-
-            showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
-
-            /*===== LINK ACTIVE =====*/
-            const linkColor = document.querySelectorAll('.nav_link')
-
-            function colorLink() {
-                if (linkColor) {
-                    linkColor.forEach(l => l.classList.remove('active'))
-                    this.classList.add('active')
-                }
-            }
-            linkColor.forEach(l => l.addEventListener('click', colorLink))
-
-            // Your code to run since DOM is loaded and ready
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
         });
     </script>
 
-
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.js"></script>
     <script src="libs/DataTables/datatables.js"></script>
-    <script src="js/load-link.js"></script>
     <script src="https://kit.fontawesome.com/b811d33229.js" crossorigin="anonymous"></script>
-
+    <script src="js/bootstrap.js"></script>
+    <script src="js/load-link.js"></script>
 </body>
 
 </html>

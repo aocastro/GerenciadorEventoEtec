@@ -8,9 +8,9 @@ $(document).ready(function() {
             // alert('Você clicou')
 
         // Limpando a div container com o id conteudo
-        $('#conteudo').empty()
+        $('#content').empty()
 
         // Inserindo o novo conteúdo dentro de id conteudo
-        $('#conteudo').load(url)
+        $('#content').load(url)
     })
 })
