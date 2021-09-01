@@ -5,14 +5,14 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Adicionar novo tipo de participante')
+        $('.modal-title').append('Adicionar novo tipo de fornecedor')
 
-        $('.modal-body').load('src/tipo-usuario/view/form-tipo.html')
+        $('.modal-body').load('src/tipo-fornecedor/view/form-tipo_fornecedor.html')
 
         $('.btn-save').show()
 
         $('.btn-save').attr('data-operation', 'insert')
 
-        $('#modal-tipo').modal('show')
+        $('#modal-tipoF').modal('show')
     })
 })
