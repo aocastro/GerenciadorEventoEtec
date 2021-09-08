@@ -11,7 +11,7 @@
     $colunas = $requestData['columns'];
 
     //Preparar o comando sql para obter os dados da categoria
-    $sql = "SELECT idTipo, nomeTipo FROM tipo WHERE 1=1 ";
+    $sql = "SELECT idFornecedor, nome, email FROM fornecedor WHERE 1=1 ";
 
     //Obter o total de registros cadastrados
     $resultado = $pdo->query($sql);
@@ -22,8 +22,8 @@
     if( !empty( $filtro ) ){
         //Montar a expressão lógica que irá compor os filtros
         //Aqui você deverá determinar quais colunas farão parte do filtro
-        $sql .= " AND (idTipo LIKE '$filtro%' ";
-        $sql .= " OR nomeTipo LIKE '$filtro%') ";
+        $sql .= " AND (idFornecedor LIKE '$filtro%' ";
+        $sql .= " OR nome LIKE '$filtro%') ";
     }
     
     //Obter o total dos dados filtrados
@@ -44,7 +44,7 @@
     $resultado = $pdo->query($sql);
     $dados = array();
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-        $dados[] = array_map(null, $row);
+        $dados[] = array_map('utf8_encode', $row);
     }
     //Monta o objeto json para retornar ao DataTable
     $json_data = array(

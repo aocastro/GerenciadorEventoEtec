@@ -4,10 +4,10 @@
     include('../../conexao/cone.php');
 
     // Executo a recepção do id a ser buscado no banco de dados
-    $ID = $_REQUEST['idTipo'];
+    $ID = $_REQUEST['idParticipante'];
 
     // Gero a querie de consulta no banco de dados
-    $sql = "SELECT * FROM tipo WHERE idTipo = $ID";
+    $sql = "SELECT * FROM participante WHERE idParticipante = $ID";
 
     // Executar nossa querie de consulta ao banco de dados
     $resultado = $pdo->query($sql);

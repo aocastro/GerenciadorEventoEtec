@@ -24,7 +24,7 @@
             try{
                 $stmt = $pdo->prepare('INSERT INTO tipo (nomeTipo) VALUES (:nomeTipo)');
                 $stmt->execute(array(
-                    ':nomeTipo' => utf8_decode($requestData['nomeTipo'])
+                    ':nomeTipo' => $requestData['nomeTipo']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -42,7 +42,7 @@
                 $stmt = $pdo->prepare('UPDATE tipo SET nomeTipo = :nomeTipo WHERE idTipo = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':nomeTipo' => utf8_decode($requestData['nomeTipo'])
+                    ':nomeTipo' => $requestData['nomeTipo']
                 ));
                 $dados = array(
                     "tipo" => 'success',

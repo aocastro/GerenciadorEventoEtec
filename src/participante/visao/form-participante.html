@@ -1,0 +1,50 @@
+<form id="form-participante" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Nome do participante</label>
+        <input type="text" name="nome" id="nome" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>CPF</label>
+        <input type="text" name="cpf" id="cpf" class="form-control" onkeypress="mascaraCPF(this)" maxlength="14">
+    </div>
+    <div class="form-group">
+        <label>Telefone(celular)</label>
+        <input type="text" name="telefone" id="telefone" class="form-control" onkeyup="mascaraTel(this)" maxlength="11">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" id="email" class="form-control">
+    </div>
+    <div class="form-group ss">
+        <label>Senha</label>
+        <input type="password" name="senha" id="senha" class="form-control">
+    </div>
+    <input type="hidden" name="idParticipante" id="idParticipante">
+<<<<<<< HEAD
+    <input type="hidden" name="idTipo" id="idTipo" value="3">
+=======
+    <input type="hidden" name="idTipo" id="idTipo" value="2">
+>>>>>>> 2b1a31fb08c249f890bac64c3cf560320266aab2
+
+</form>
+<script>
+    function mascaraCPF(campoCPF) {
+        var cpf = campoCPF.value;
+        if (cpf.length == 3) {
+            cpf = cpf + '.'
+            campoCPF.value = cpf
+        } else if (cpf.length == 7) {
+            cpf = cpf + '.'
+            campoCPF.value = cpf
+        } else if (cpf.length == 11)
+            cpf = cpf + '-'
+        campoCPF.value = cpf
+    }
+
+    function mascaraTel(telefone) {
+        tel = telefone.value;
+        tel = tel.replace(/\D/g, "") // permite digitar apenas numero
+        tel = tel.replace(/(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3")
+        telefone.value = tel;
+    }
+</script>

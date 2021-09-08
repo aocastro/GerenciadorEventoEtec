@@ -11,7 +11,7 @@
     $colunas = $requestData['columns'];
 
     //Preparar o comando sql para obter os dados da categoria
-    $sql = "SELECT idTipo, nomeTipo FROM tipo WHERE 1=1 ";
+    $sql = "SELECT idParticipante, nome, telefone FROM participante WHERE 1=1 ";
 
     //Obter o total de registros cadastrados
     $resultado = $pdo->query($sql);
@@ -22,8 +22,8 @@
     if( !empty( $filtro ) ){
         //Montar a expressão lógica que irá compor os filtros
         //Aqui você deverá determinar quais colunas farão parte do filtro
-        $sql .= " AND (idTipo LIKE '$filtro%' ";
-        $sql .= " OR nomeTipo LIKE '$filtro%') ";
+        $sql .= " AND (idParticipante LIKE '$filtro%' ";
+        $sql .= " OR nome LIKE '$filtro%') ";
     }
     
     //Obter o total dos dados filtrados

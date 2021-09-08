@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="src/participante/visao/list-participante.html" onload='window.history.back();'><i class="far fa-hand-point-left"></i> Voltar</a>
+                    <a class="nav-link" href="src/tipo-usuario/view/list-tipo.html">Tipos de Participantes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Page</a>
@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-12 col-md-9">
                             <h4 class="text-dark">
-                                Gerenciar Tipos de Participantes
+                                Gerenciar Participantes
                             </h4>
                         </div>
                         <div class="col-12 col-md-3">
@@ -46,11 +46,12 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover" id="table-tipo">
+                        <table class="table table-hover" id="table-participante">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col" class="text-center">ID</th>
-                                    <th scope="col" class="text-center">DESCRIÇÃO</th>
+                                    <th scope="col" class="text-center">NOME</th>
+                                    <th scope="col" class="text-center">TELEFONE</th>
                                     <th scope="col" class="text-center">AÇÕES</th>
                                 </tr>
                             </thead>
@@ -62,7 +63,7 @@
     </div>
 </div>
 
-<div id="modal-tipo" class="modal fade" tabindex="-1" role="dialog">
+<div id="modal-participante" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -82,12 +83,16 @@
     </div>
 </div>
 
-<script src="src/tipo-usuario/controller/new-tipo.js"></script>
-<script src="src/tipo-usuario/controller/save-tipo.js"></script>
-<script src="src/tipo-usuario/controller/list-tipo.js"></script>
-<script src="src/tipo-usuario/controller/view-tipo.js"></script>
-<script src="src/tipo-usuario/controller/edit-tipo.js"></script>
-<script src="src/tipo-usuario/controller/delete-tipo.js"></script>
+<script src="src/participante/controle/new-participante.js"></script>
+<script src="src/participante/controle/save-participante.js"></script>
+<script src="src/participante/controle/list-participante.js"></script>
+<script src="src/participante/controle/view-participante.js"></script>
+<script src="src/participante/controle/edit-participante.js"></script>
+<script src="src/participante/controle/delete-participante.js"></script>
+<<<<<<< HEAD
+<script src="js/load-link.js"></script>
+=======
+>>>>>>> 2b1a31fb08c249f890bac64c3cf560320266aab2
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -95,5 +100,6 @@
             $('#sidebar').toggleClass('active');
             $(this).toggleClass('active');
         });
+        $('#participante').hide()
     });
 </script>
