@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-    $('#table-participante').on('click', 'button.btn-delete', function(e) {
+    $('#table-fornecedor').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
 
-        let idParticipante = `idParticipante=${$(this).attr('id')}`
+        let idFornecedor = `idFornecedor=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'Library',
+            title: 'Elevent',
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
@@ -20,8 +20,8 @@ $(document).ready(function() {
                     type: 'POST',
                     dataType: 'json',
                     assync: true,
-                    data: idParticipante,
-                    url: 'src/participante/modelo/delete-participante.php',
+                    data: idFornecedor,
+                    url: 'src/fornecedor/modelo/delete-fornecedor.php',
                     success: function(dados) {
                         Swal.fire({
                             title: 'Elevent',
@@ -30,7 +30,7 @@ $(document).ready(function() {
                             confirmButtonText: 'OK'
                         })
 
-                        $('#table-participante').DataTable().ajax.reload()
+                        $('#table-fornecedor').DataTable().ajax.reload()
                     }
                 })
             }

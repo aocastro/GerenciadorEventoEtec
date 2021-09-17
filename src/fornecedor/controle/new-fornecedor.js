@@ -9,7 +9,6 @@ $(document).ready(function() {
         $('.modal-body').load('src/fornecedor/visao/form-fornecedor.html', function() {
 
 
-            $('.endereco').hide()
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
@@ -17,7 +16,7 @@ $(document).ready(function() {
                 url: 'src/tipo-fornecedor/model/all-tipo_fornecedor.php',
                 success: function(dados) {
                     for (const dado of dados) {
-                        $('#tipoFornecedor').append(`<option value="${dado.tipoFornecedor}">${dado.NomeTipoFornecedor}</option>`)
+                        $('#tipo_fornecedor_idTipoFornecedor').append(`<option value="${dado.idTipoFornecedor}">${dado.NomeTipoFornecedor}</option>`)
                     }
                 }
             })

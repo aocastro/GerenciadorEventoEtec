@@ -1,43 +1,40 @@
 <form id="form-fornecedor" enctype="multipart/form-data">
-    <div class="form-group">
-        <label>Nome do fornecedor</label>
-        <input type="text" name="nome" id="nome" class="form-control">
+    <div class="form-group row">
+        <label class="col-3">Nome do fornecedor</label>
+        <input type="text" name="nome" id="nome" class="form-control col-8">
     </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" id="email" class="form-control">
+    <div class="form-group row">
+        <label class="col-3">Email</label>
+        <input type="email" name="email" id="email" class="form-control col-8">
     </div>
-    <div class="form-group">
-        <label>Telefone(celular)</label>
-        <input type="text" name="telefone" id="telefone" class="form-control" onkeyup="mascaraTel(this)" maxlength="11">
+    <div class="form-group row">
+        <label class="col-3">Telefone(celular)</label>
+        <input type="text" name="telefone" id="telefone" class="form-control col-8" onkeyup="mascaraTel(this)" maxlength="11">
     </div>
-    <div class="form-group">
-        <label>Cep</label>
-        <input name="cep" type="text" id="cep" class="form-control" value="" maxlength="9" onblur="pesquisacep(this.value);">
+    <div class="form-group row">
+        <label class="col-3">Cep</label>
+        <input name="cep" type="text" id="cep" class="form-control col-4" value="" maxlength="9" onblur="pesquisacep(this.value);">
+        <label class="col-2">Número</label>
+        <input name="numero" type="num" id="numero" class="form-control col-2">
     </div>
-    <div class="form-group endereco">
-        <label>Rua:</label>
-        <input name="rua" type="text" id="rua" class="form-control">
+    <div class="form-group row">
+        <label class="col-3">Rua</label>
+        <input name="rua" type="text" id="rua" class="form-control col-8">
+
     </div>
-    <div class="form-group endereco">
-        <label>Bairro:</label>
-        <input name="bairro" type="text" id="bairro" class="form-control">
+    <div class="form-group row">
+        <label class="col-3">Cidade</label>
+        <input name="cidade" type="text" id="cidade" class="form-control col-8">
     </div>
-    <div class="form-group endereco">
-        <label>Cidade:</label>
-        <input name="cidade" type="text" id="cidade" class="form-control">
+    <div class="form-group row">
+        <label class="col-3">Bairro</label>
+        <input name="bairro" type="text" id="bairro" class="form-control col-4">
+        <label class="col-2">Estado</label>
+        <input name="uf" type="text" id="uf" class="form-control col-2">
     </div>
-    <div class="form-group endereco">
-        <label>Estado:</label>
-        <input name="uf" type="text" id="uf" class="form-control">
-    </div>
-    <div class="form-group endereco">
-        <label>IBGE:</label>
-        <input name="ibge" type="text" id="ibge" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Setor</label>
-        <select name="tipoFornecedor" id="tipoFornecedor" class="form-control"></select>
+    <div class="form-group row">
+        <label class="col-3">Setor</label>
+        <select name="tipo_fornecedor_idTipoFornecedor" id="tipo_fornecedor_idTipoFornecedor" class="form-control col-8"></select>
     </div>
     <input type="hidden" name="idFornecedor" id="idFornecedor">
 </form>
@@ -61,7 +58,6 @@
             document.getElementById('bairro').value = (conteudo.bairro);
             document.getElementById('cidade').value = (conteudo.localidade);
             document.getElementById('uf').value = (conteudo.uf);
-            document.getElementById('ibge').value = (conteudo.ibge);
         } //end if.
         else {
             //CEP não Encontrado.
@@ -89,7 +85,6 @@
                 document.getElementById('bairro').value = "...";
                 document.getElementById('cidade').value = "...";
                 document.getElementById('uf').value = "...";
-                document.getElementById('ibge').value = "...";
 
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
