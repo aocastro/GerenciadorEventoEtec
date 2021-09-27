@@ -51,7 +51,7 @@
             var cont = 1;
             $('#add-campo').click(function() {
                 cont++;
-                $('.days').append('<div class="row col-auto"><input type="date" name="data[]" id="data" id="campo' + cont + '" class="form-control col-7"><button type="button" id="' + cont + '" class="btn-apagar col-1 btn btn-outline-dark offset-1">-</button></div>');
+                $('.days').append('<div class="row col-auto" id="campo' + cont + '"><input type="date" name="data[]" id="data" id="campo' + cont + '" class="form-control col-7"><button type="button" id="' + cont + '" class="btn-apagar col-1 btn btn-outline-dark offset-1">-</button></div>');
             });
 
             $('.days').on('click', '.btn-apagar', function() {
