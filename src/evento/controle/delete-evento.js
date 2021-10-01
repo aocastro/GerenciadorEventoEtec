@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-    $('#table-participante').on('click', 'button.btn-delete', function(e) {
+    $('#table-evento').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
 
-        let idParticipante = `idParticipante=${$(this).attr('id')}`
+        let idEvento = `idEvento=${$(this).attr('id')}`
 
         Swal.fire({
             title: 'Elevent',
@@ -20,8 +20,8 @@ $(document).ready(function() {
                     type: 'POST',
                     dataType: 'json',
                     assync: true,
-                    data: idParticipante,
-                    url: 'src/participante/modelo/delete-participante.php',
+                    data: idEvento,
+                    url: 'src/evento/modelo/delete-evento.php',
                     success: function(dados) {
                         Swal.fire({
                             title: 'Elevent',
@@ -30,7 +30,7 @@ $(document).ready(function() {
                             confirmButtonText: 'OK'
                         })
 
-                        $('#table-participante').DataTable().ajax.reload()
+                        $('#table-evento').DataTable().ajax.reload()
                     }
                 })
             }
