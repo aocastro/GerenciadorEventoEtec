@@ -11,7 +11,7 @@
 // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
-            "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s). '.$e
+            "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
         );
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
@@ -22,18 +22,19 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO evento (nome, horaInicio, horaFim, descricaoEvento, situacao, certificacao) VALUES (:nome, :horaInicio, :horaFim, :descricaoEvento, :situacao, :certificacao');
+                $stmt = $pdo->prepare('INSERT INTO evento (nome, dataE, horaInicio, horaFim, descricaoEvento, situacao, certificacao) VALUES (:nome, :dataE, :horaInicio, :horaFim, :descricaoEvento, :situacao, :certificacao)');
                 $stmt->execute(array(
                     ':nome' => $requestData['nome'],
+                    ':dataE' => $requestData['dataE'],
                     ':horaInicio' => $requestData['horaInicio'],
-                    ':horaFim' => $requestData['horaFim'],
+                    ':horaFim' =>$requestData['horaFim'],
                     ':descricaoEvento' => $requestData['descricaoEvento'],
                     ':situacao' => $requestData['situacao'],
                     ':certificacao' => $requestData['certificacao']
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'O evento foi cadastrado com sucesso.'
+                    "mensagem" => 'evento cadastrado com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
@@ -44,10 +45,10 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, horaInicio=:horaInicio, horaFim=:horaFim, descricaoEvento=:descricaoEvento, situacao=:situacao, certificacao=:certificacao");
+                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, dataE=:dataE, horaInicio=:horaInicio, horaFim=:horaFim, descricaoEvento=:descricaoEvento, situacao=:situacao, certificacao=:certificacao WHERE idEvento=:id");
                 $stmt->execute(array(
                     ':id' => $idEvento,
-                    ':nome' => $requestData['nome'],
+                    ':dataE' => $requestData['dataE'],
                     ':horaInicio' => $requestData['horaInicio'],
                     ':horaFim' => $requestData['horaFim'],
                     ':descricaoEvento' => $requestData['descricaoEvento'],
@@ -56,7 +57,7 @@
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'O evento foi atualizado com sucesso!'
+                    "mensagem" => 'evento atualizado com sucesso!'
                 );
             } catch(PDOException $e) {
                 $dados = array(

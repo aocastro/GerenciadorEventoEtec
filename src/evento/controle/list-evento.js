@@ -18,7 +18,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'data',
+                "data": 'dataE',
                 "className": 'text-center'
             },
             {
