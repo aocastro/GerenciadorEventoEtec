@@ -30,8 +30,9 @@ $(document).ready(function() {
                     $('.modal-body').load('src/evento/visao/form-evento.html', function() {
                         $('#nome').val(dado.dados.nome)
                         $('#nome').attr('readonly', 'true')
-                            // $('#data').val(dado.dados.dataE)
-                            // $('#data').attr('readonly', 'true')
+                        $('#dataE').val(dado.dados.dataE)
+                        $('#dataE').attr('readonly', 'true')
+                        alert(dado.dados.dataE)
                         $('#horaInicio').val(dado.dados.horaInicio)
                         $('#horaInicio').attr('readonly', 'true')
                         $('#horaFim').val(dado.dados.horaFim)
