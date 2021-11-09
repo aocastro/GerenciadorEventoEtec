@@ -23,25 +23,24 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/evento/visao/form-evento.html', function() {
                         $('#nome').val(dado.dados.nome)
-                        $('#dataE').val(dado.dados.dataE)
-                        $('#horaInicio').val(dado.dados.horaInicio)
-                        $('#horaFim').val(dado.dados.horaFim)
+                            // $('#dataE').val(dado.dados.dataE)
+                            // $('#horaInicio').val(dado.dados.horaInicio)
+                            // $('#horaFim').val(dado.dados.horaFim)
                         $('#descricao').val(dado.dados.descricao)
-                        $('#descricao').attr('readonly', 'true')
-                        $('#situacao').val(dado.dados.situacao)
-                        $('#situacao').attr('readonly', 'true')
-                        var nomeSetor = dado.dados.situacao
-                        for (const dado of dados) {
-                            if (dado.situacao == nomeSetor) {
-                                $('#situacao').append(`<option value="${dado.situacao}">${dado.situacao}</option>`)
-                            }
-                        }
-                        // aparecer os demais setores existentes
-                        for (const setor of dados) {
-                            if (setor.situacao != nomeSetor) {
-                                $('#situacao').append(`<option value="${setor.situacao}">${setor.situacao}</option>`)
-                            }
-                        }
+                            // $('#situacao').val(dado.dados.situacao)
+                            // $('#situacao').attr('readonly', 'true')
+                            // var nomeSetor = dado.dados.situacao
+                            // for (const dado of dados) {
+                            //     if (dado.situacao == nomeSetor) {
+                            //         $('#situacao').append(`<option value="${dado.situacao}">${dado.situacao}</option>`)
+                            //     }
+                            // }
+                            // // aparecer os demais setores existentes
+                            // for (const setor of dados) {
+                            //     if (setor.situacao != nomeSetor) {
+                            //         $('#situacao').append(`<option value="${setor.situacao}">${setor.situacao}</option>`)
+                            //     }
+                            // }
                     })
                     $('.btn-save').show()
                     $('#modal-evento').modal('show')

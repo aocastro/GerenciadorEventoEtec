@@ -22,19 +22,14 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO evento (nome, dataE, horaInicio, horaFim, descricaoEvento, situacao, certificacao) VALUES (:nome, :dataE, :horaInicio, :horaFim, :descricaoEvento, :situacao, :certificacao)');
+                $stmt = $pdo->prepare('INSERT INTO evento (nome, descricaoEvento) VALUES (:nome, :descricaoEvento)');
                 $stmt->execute(array(
                     ':nome' => $requestData['nome'],
-                    ':dataE' => $requestData['dataE'],
-                    ':horaInicio' => $requestData['horaInicio'],
-                    ':horaFim' =>$requestData['horaFim'],
-                    ':descricaoEvento' => $requestData['descricaoEvento'],
-                    ':situacao' => $requestData['situacao'],
-                    ':certificacao' => $requestData['certificacao']
+                    ':descricaoEvento' => $requestData['descricaoEvento']
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'evento cadastrado com sucesso.'
+                    "mensagem" => 'Evento cadastrado com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
@@ -45,15 +40,11 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, dataE=:dataE, horaInicio=:horaInicio, horaFim=:horaFim, descricaoEvento=:descricaoEvento, situacao=:situacao, certificacao=:certificacao WHERE idEvento=:id");
+                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, descricaoEvento=:descricaoEvento WHERE idEvento=:id");
                 $stmt->execute(array(
                     ':id' => $idEvento,
-                    ':dataE' => $requestData['dataE'],
-                    ':horaInicio' => $requestData['horaInicio'],
-                    ':horaFim' => $requestData['horaFim'],
-                    ':descricaoEvento' => $requestData['descricaoEvento'],
-                    ':situacao' => $requestData['situacao'],
-                    ':certificacao' => $requestData['certificacao']
+                    ':nome' => $requestData['nome'],
+                    ':descricaoEvento' => $requestData['descricaoEvento']
                 ));
                 $dados = array(
                     "tipo" => 'success',
