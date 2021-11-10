@@ -22,10 +22,11 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO evento (nome, descricaoEvento) VALUES (:nome, :descricaoEvento)');
+                $stmt = $pdo->prepare('INSERT INTO evento (nome, descricaoEvento, situacao) VALUES (:nome, :descricaoEvento, :situacao)');
                 $stmt->execute(array(
                     ':nome' => $requestData['nome'],
-                    ':descricaoEvento' => $requestData['descricaoEvento']
+                    ':descricaoEvento' => $requestData['descricaoEvento'],
+                    ':situacao' > $requestData['situacao']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -40,15 +41,16 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, descricaoEvento=:descricaoEvento WHERE idEvento=:id");
+                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, descricaoEvento=:descricaoEvento, situacao=:situacao WHERE idEvento=:id");
                 $stmt->execute(array(
                     ':id' => $idEvento,
                     ':nome' => $requestData['nome'],
-                    ':descricaoEvento' => $requestData['descricaoEvento']
+                    ':descricaoEvento' => $requestData['descricaoEvento'],
+                    ':situacao' => $requestData['situacao']
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'evento atualizado com sucesso!'
+                    "mensagem" => 'Evento atualizado com sucesso!'
                 );
             } catch(PDOException $e) {
                 $dados = array(
