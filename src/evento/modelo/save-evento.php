@@ -26,7 +26,7 @@
                 $stmt->execute(array(
                     ':nome' => $requestData['nome'],
                     ':descricaoEvento' => $requestData['descricaoEvento'],
-                    ':situacao' > $requestData['situacao']
+                    ':situacao' => $requestData['situacao']
                 ));
                 $dados = array(
                     "tipo" => 'success',

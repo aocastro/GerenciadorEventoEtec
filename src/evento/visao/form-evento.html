@@ -3,7 +3,7 @@
         <label class="col-4 col-md-4">Nome do evento</label>
         <input type="text" name="nome" id="nome" class="form-control col-7 col-md-6 offset-1">
     </div>
-    <!-- <div class="form-group days">
+    <div class="form-group days">
         <label>Data do evento</label>
         <div class="row col-auto">
             <input type="date" name="dataE[]" id="dataE" class="form-control col-7" value="20/12/2021">
@@ -17,21 +17,19 @@
     <div class="form-group row">
         <label class="col-12 col-md-4">Hora de término</label>
         <input type="time" name="horaFim" id="horaFim" class="form-control col-12 col-md-5 offset-1">
-    </div> -->
+    </div>
     <div class="form-group row">
         <label class="col-12 col-md-4">Descrição</label>
         <textarea type="text" id="descricaoEvento" name="descricaoEvento" class="form-control col-12 col-md-6 offset-1" rows="3"></textarea>
     </div>
     <div class="form-group row">
-        <label class="col-12 col-md-5">Situação</label>
-        <div class="input-group col-12 col-md-5">
-            <select id="situacao" name="situacao" class="form-control">
-                <option selected>Selecione...</option>
-                <option value="p">Preparando</option>
-                <option value="o">Ocorrendo</option>
-                <option value="t">Terminou</option>
-            </select>
-        </div>
+        <label>Situação</label>
+        <select name="situacao" id="situacao" class="form-control">
+            <option value="">Selecione...</option>
+            <option value="p">Preparando...</option>
+            <option value="o">Ocorrendo...</option>
+            <option value="t">Terminou...</option>
+        </select>
     </div>
     <!-- <div class="form-group">
         <label>Terá certificação?</label>
