@@ -38,15 +38,21 @@ $(document).ready(function() {
                             // $('#horaFim').attr('readonly', 'true')
                         $('#descricaoEvento').val(dado.dados.descricaoEvento)
                         $('#descricaoEvento').attr('readonly', 'true')
-                        var situacao = dado.dados.situacao
-                        if (dado.situacao == situacao) {
-                            $('#situacao').append(`<option selected value="${dado.situacao}">${dado.situacao}</option>`)
+
+                        $('#situacao').empty()
+                        var sit
+                        if (dado.dados.situacao == "p") {
+                            sit = "Preparando..."
+                        } else if (dado.dados.situacao == "o") {
+                            sit = "Ocorrendo..."
+                        } else {
+                            sit = "Terminou..."
                         }
-                        // $('#situacao').val(dado.dados.situacao)
-                        // $('#situacao').attr('readonly', 'true')
-                        // certifica()
-                        // $('.certi').val(dado.dados.certificacao)
-                        // $('.certi').attr('readonly', 'true')
+                        $('#situacao').append(`<option value="">${sit}</option>`)
+                        $('#situacao').attr('readonly', 'true')
+                            // certifica()
+                            // $('.certi').val(dado.dados.certificacao)
+                            // $('.certi').attr('readonly', 'true')
 
 
                     })

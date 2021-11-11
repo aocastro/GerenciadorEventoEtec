@@ -23,10 +23,10 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/evento/visao/form-evento.html', function() {
                         $('#nome').val(dado.dados.nome)
+                        $('#descricaoEvento').val(dado.dados.descricaoEvento)
                             // $('#dataE').val(dado.dados.dataE)
                             // $('#horaInicio').val(dado.dados.horaInicio)
                             // $('#horaFim').val(dado.dados.horaFim)
-                        $('#descricao').val(dado.dados.descricao)
                             // $('#situacao').val(dado.dados.situacao)
                             // $('#situacao').attr('readonly', 'true')
                             // var nomeSetor = dado.dados.situacao

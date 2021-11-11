@@ -10,7 +10,7 @@ $(document).ready(function() {
             text: 'Deseja realmente excluir esse registro?',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonTexto: 'Sim',
+            confirmButtonText: 'Sim',
             cancelButtonText: 'Não',
         }).then((result => {
             if (result.value) {
