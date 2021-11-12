@@ -3,13 +3,13 @@
         <label class="col-4 col-md-4">Nome do evento</label>
         <input type="text" name="nome" id="nome" class="form-control col-7 col-md-6 offset-1">
     </div>
-    <!-- <div class="form-group days">
+    <div class="form-group days">
         <label>Data do evento</label>
         <div class="row col-auto">
-            <input type="date" name="dataE[]" id="dataE" class="form-control col-7" value="20/12/2021">
+            <input type="date" name="dataE[]" id="dataE" class="form-control col-7" value="format(" dd-mm-YYYY ")">
             <button type="button" id="add-campo" class="col-1 btn btn-outline-warning offset-1">+</button>
         </div>
-    </div> -->
+    </div>
     <!-- <div class="form-group row">
         <label class="col-12 col-md-4">Hora de início</label>
         <input type="time" name="horaInicio" id="horaInicio" class="form-control col-12 col-md-5 offset-1" value="format(" HH:mm ")">
@@ -23,8 +23,8 @@
         <textarea type="text" id="descricaoEvento" name="descricaoEvento" class="form-control col-12 col-md-6 offset-1" rows="3"></textarea>
     </div>
     <div class="form-group row">
-        <label>Situação</label>
-        <select name="situacao" id="situacao" class="form-control">
+        <label class="col-12 col-md-4">Situação</label>
+        <select name="situacao" id="situacao" class="form-control col-12 col-md-7">
             <option value="">Selecione...</option>
             <option value="p">Preparando...</option>
             <option value="o">Ocorrendo...</option>
@@ -49,7 +49,7 @@
             var cont = 1;
             $('#add-campo').click(function() {
                 cont++;
-                $('.days').append('<div class="row col-auto" id="campo' + cont + '"><input type="date" name="data[]" id="data" id="campo' + cont + '" class="form-control col-7" value="format("dd-mm-YYYY")"><button type="button" id="' + cont + '" class="btn-apagar col-1 btn btn-outline-dark offset-1">-</button></div>');
+                $('.days').append('<div class="row col-auto" id="campo' + cont + '"><input type="date" name="dataE[]" id="dataE" id="campo' + cont + '" class="form-control col-7" value="format("dd-mm-YYYY")"><button type="button" id="' + cont + '" class="btn-apagar col-1 btn btn-outline-dark offset-1">-</button></div>');
             });
 
             $('.days').on('click', '.btn-apagar', function() {

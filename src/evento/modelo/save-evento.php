@@ -28,6 +28,18 @@
                     ':descricaoEvento' => $requestData['descricaoEvento'],
                     ':situacao' => $requestData['situacao']
                 ));
+                $sql = $pdo->query("SELECT * FROM evento ORDER BY idEvento DESC LIMIT 1");
+                            while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
+                                $idE = $resultado['idEvento'];
+                            }
+                            $indice = count(array_filter($requestData['USUARIO_IDUSUARIO']));
+                            for($i=0; $i<$indice ;$i++){
+                            $stmt = $pdo -> prepare('INSERT INTO evento (dataE) VALUES (:i) WHERE idEvento=:h');
+                            $stmt -> execute(array(
+                                ':h' => $idE,
+                                ':i' => $requestData['dataE'][$i]
+                            ));
+                        }
                 $dados = array(
                     "tipo" => 'success',
                     "mensagem" => 'Evento cadastrado com sucesso.'
