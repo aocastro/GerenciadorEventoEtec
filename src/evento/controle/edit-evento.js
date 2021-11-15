@@ -22,25 +22,13 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/evento/visao/form-evento.html', function() {
+                        $('#idEvento').val(dado.dados.idEvento)
                         $('#nome').val(dado.dados.nome)
+                        $('#dataE').val(dado.dados.dataE)
                         $('#descricaoEvento').val(dado.dados.descricaoEvento)
-                            // $('#dataE').val(dado.dados.dataE)
+                        $('#situacao').val(dado.dados.situacao)
                             // $('#horaInicio').val(dado.dados.horaInicio)
                             // $('#horaFim').val(dado.dados.horaFim)
-                            // $('#situacao').val(dado.dados.situacao)
-                            // $('#situacao').attr('readonly', 'true')
-                            // var nomeSetor = dado.dados.situacao
-                            // for (const dado of dados) {
-                            //     if (dado.situacao == nomeSetor) {
-                            //         $('#situacao').append(`<option value="${dado.situacao}">${dado.situacao}</option>`)
-                            //     }
-                            // }
-                            // // aparecer os demais setores existentes
-                            // for (const setor of dados) {
-                            //     if (setor.situacao != nomeSetor) {
-                            //         $('#situacao').append(`<option value="${setor.situacao}">${setor.situacao}</option>`)
-                            //     }
-                            // }
                     })
                     $('.btn-save').show()
                     $('#modal-evento').modal('show')

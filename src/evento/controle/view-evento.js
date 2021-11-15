@@ -1,10 +1,3 @@
-function certifica() {
-    for (const dado of dados) {
-        var cert = $('.certi').attr("data-p")
-        alert(cert)
-    }
-}
-
 $(document).ready(function() {
 
     $('#table-evento').on('click', 'button.btn-view', function(e) {
@@ -50,9 +43,11 @@ $(document).ready(function() {
                         }
                         $('#situacao').append(`<option value="">${sit}</option>`)
                         $('#situacao').attr('readonly', 'true')
+                            // var selectedOption = $("input:radio[name=certificacao]:checked").val()
+                            // alert(selectedOption)
                             // certifica()
-                            // $('.certi').val(dado.dados.certificacao)
-                            // $('.certi').attr('readonly', 'true')
+                        $('.certi').val(dado.dados.certificacao)
+                        $('.certi').attr('readonly', 'true')
 
 
                     })

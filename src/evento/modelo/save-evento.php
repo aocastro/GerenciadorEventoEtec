@@ -16,30 +16,24 @@
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
         $idEvento = isset($requestData['idEvento']) ? $requestData['idEvento'] : "";
+        $cert = isset($requestData['certificacao']) ? $requestData['certificacao'] : "";
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : "";
 
         // Verifica se é para cadastra um nvo registro
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO evento (nome, descricaoEvento, situacao) VALUES (:nome, :descricaoEvento, :situacao)');
+                $stmt = $pdo->prepare('INSERT INTO evento (nome, dataE, horaInicio, horaFim, descricaoEvento, situacao, certificacao) VALUES (:nome, :dataE, :horaInicio, :horaFim, :descricaoEvento, :situacao, :certificacao)');
                 $stmt->execute(array(
                     ':nome' => $requestData['nome'],
+                    ':dataE' => $requestData['dataE'],
+                    ':horaInicio' => $requestData['horaInicio'],
+                    ':horaFim' => $requestData['horaFim'],
                     ':descricaoEvento' => $requestData['descricaoEvento'],
-                    ':situacao' => $requestData['situacao']
+                    ':situacao' => $requestData['situacao'],
+                    ':certificacao' => $cert
                 ));
-                $sql = $pdo->query("SELECT * FROM evento ORDER BY idEvento DESC LIMIT 1");
-                            while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
-                                $idE = $resultado['idEvento'];
-                            }
-                            $indice = count(array_filter($requestData['USUARIO_IDUSUARIO']));
-                            for($i=0; $i<$indice ;$i++){
-                            $stmt = $pdo -> prepare('INSERT INTO evento (dataE) VALUES (:i) WHERE idEvento=:h');
-                            $stmt -> execute(array(
-                                ':h' => $idE,
-                                ':i' => $requestData['dataE'][$i]
-                            ));
-                        }
+
                 $dados = array(
                     "tipo" => 'success',
                     "mensagem" => 'Evento cadastrado com sucesso.'
@@ -53,12 +47,16 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, descricaoEvento=:descricaoEvento, situacao=:situacao WHERE idEvento=:id");
+                $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, dataE=:dataE, horaInicio=:horaInicio, horaFim=:horaFim, descricaoEvento=:descricaoEvento, situacao=:situacao, certificacao=:certificacao WHERE idEvento=:id");
                 $stmt->execute(array(
                     ':id' => $idEvento,
                     ':nome' => $requestData['nome'],
+                    ':dataE' => $requestData['dataE'],
+                    ':horaInicio' => $requestData['horaInicio'],
+                    ':horaFim' => $requestData['horaFim'],
                     ':descricaoEvento' => $requestData['descricaoEvento'],
-                    ':situacao' => $requestData['situacao']
+                    ':situacao' => $requestData['situacao'],
+                    ':certificacao' => $cert
                 ));
                 $dados = array(
                     "tipo" => 'success',

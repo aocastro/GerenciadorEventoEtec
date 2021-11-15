@@ -6,18 +6,18 @@
     <div class="form-group days">
         <label>Data do evento</label>
         <div class="row col-auto">
-            <input type="date" name="dataE[]" id="dataE" class="form-control col-7" value="format(" dd-mm-YYYY ")">
-            <button type="button" id="add-campo" class="col-1 btn btn-outline-warning offset-1">+</button>
+            <input type="date" name="dataE" id="dataE" class="form-control col-7" data-date="" data-date-format="DD MMMM YYYY">
+            <!-- <button type="button" id="add-campo" class="col-1 btn btn-outline-warning offset-1">+</button> -->
         </div>
     </div>
-    <!-- <div class="form-group row">
+    <div class="form-group row">
         <label class="col-12 col-md-4">Hora de início</label>
-        <input type="time" name="horaInicio" id="horaInicio" class="form-control col-12 col-md-5 offset-1" value="format(" HH:mm ")">
+        <input type="time" name="horaInicio" id="horaInicio" class="form-control col-12 col-md-5 offset-1" min="00:00" max="23:00">
     </div>
     <div class="form-group row">
         <label class="col-12 col-md-4">Hora de término</label>
-        <input type="time" name="horaFim" id="horaFim" class="form-control col-12 col-md-5 offset-1">
-    </div> -->
+        <input type="time" name="horaFim" id="horaFim" class="form-control col-12 col-md-5 offset-1" min="12:00" max="23:59">
+    </div>
     <div class="form-group row">
         <label class="col-12 col-md-4">Descrição</label>
         <textarea type="text" id="descricaoEvento" name="descricaoEvento" class="form-control col-12 col-md-6 offset-1" rows="3"></textarea>
@@ -31,31 +31,38 @@
             <option value="t">Terminou...</option>
         </select>
     </div>
-    <!-- <div class="form-group">
+    <div class="form-group">
         <label>Terá certificação?</label>
         <div class="form-check form-check-inline offset-2">
-            <input class="form-check-input certi" type="radio" data-p="sim" name="certificacao" id="sim" value="true">
+            <input class="form-check-input certi" type="radio" data-p="sim" name="certificacao" id="sim" value="1">
             <label class="form-check-label">Sim</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input certi" type="radio" data-p="nao" name="certificacao" id="nao" value="false">
+            <input class="form-check-input certi" type="radio" data-p="nao" name="certificacao" id="nao" value="2">
             <label class="form-check-label">Não</label>
         </div>
-    </div> -->
+    </div>
     <input type="hidden" name="idEvento" id="idEvento">
 
     <script>
-        $(document).ready(function() {
-            var cont = 1;
-            $('#add-campo').click(function() {
-                cont++;
-                $('.days').append('<div class="row col-auto" id="campo' + cont + '"><input type="date" name="dataE[]" id="dataE" id="campo' + cont + '" class="form-control col-7" value="format("dd-mm-YYYY")"><button type="button" id="' + cont + '" class="btn-apagar col-1 btn btn-outline-dark offset-1">-</button></div>');
-            });
+        $("input").on("change", function() {
+                this.setAttribute(
+                    "data-date",
+                    moment(this.value, "YYYY-MM-DD")
+                    .format(this.getAttribute("data-date-format"))
+                )
+            }).trigger("change")
+            // $(document).ready(function() {
+            //     var cont = 1;
+            //     $('#add-campo').click(function() {
+            //         cont++;
+            //         $('.days').append('<div class="row col-auto" id="campo' + cont + '"><input type="date" name="dataE[]" id="dataE" id="campo' + cont + '" class="form-control col-7" value="format("dd-mm-YYYY")"><button type="button" id="' + cont + '" class="btn-apagar col-1 btn btn-outline-dark offset-1">-</button></div>');
+            //     });
 
-            $('.days').on('click', '.btn-apagar', function() {
-                var button_id = $(this).attr("id");
-                $('#campo' + button_id + '').remove();
-            });
-        });
+        //     $('.days').on('click', '.btn-apagar', function() {
+        //         var button_id = $(this).attr("id");
+        //         $('#campo' + button_id + '').remove();
+        //     });
+        // });
     </script>
 </form>
