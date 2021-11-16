@@ -31,7 +31,14 @@
             <option value="t">Terminou...</option>
         </select>
     </div>
-    <div class="form-group">
+    <div class="form-group row">
+        <label class="col-12 col-md-4">Terá certificado</label>
+        <select name="certificacao" id="certificacao" class="form-control col-12 col-md-7">
+            <option value="2">Não</option>
+            <option value="1">Sim</option>
+        </select>
+    </div>
+    <!-- <div class="form-group">
         <label>Terá certificação?</label>
         <div class="form-check form-check-inline offset-2">
             <input class="form-check-input certi" type="radio" data-p="sim" name="certificacao" id="sim" value="1">
@@ -41,7 +48,7 @@
             <input class="form-check-input certi" type="radio" data-p="nao" name="certificacao" id="nao" value="2">
             <label class="form-check-label">Não</label>
         </div>
-    </div>
+    </div> -->
     <input type="hidden" name="idEvento" id="idEvento">
 
     <script>

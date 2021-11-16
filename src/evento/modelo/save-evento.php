@@ -16,7 +16,6 @@
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
         $idEvento = isset($requestData['idEvento']) ? $requestData['idEvento'] : "";
-        $cert = isset($requestData['certificacao']) ? $requestData['certificacao'] : "";
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : "";
 
         // Verifica se é para cadastra um nvo registro
@@ -31,7 +30,7 @@
                     ':horaFim' => $requestData['horaFim'],
                     ':descricaoEvento' => $requestData['descricaoEvento'],
                     ':situacao' => $requestData['situacao'],
-                    ':certificacao' => $cert
+                    ':certificacao' => $requestData['certificacao']
                 ));
 
                 $dados = array(
@@ -56,7 +55,7 @@
                     ':horaFim' => $requestData['horaFim'],
                     ':descricaoEvento' => $requestData['descricaoEvento'],
                     ':situacao' => $requestData['situacao'],
-                    ':certificacao' => $cert
+                    ':certificacao' => $requestData['certificacao']
                 ));
                 $dados = array(
                     "tipo" => 'success',
