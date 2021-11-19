@@ -25,10 +25,10 @@ $(document).ready(function() {
                         $('#nome').attr('readonly', 'true')
                         $('#dataE').val(dado.dados.dataE)
                         $('#dataE').attr('readonly', 'true')
-                            // $('#horaInicio').val(dado.dados.horaInicio)
-                            // $('#horaInicio').attr('readonly', 'true')
-                            // $('#horaFim').val(dado.dados.horaFim)
-                            // $('#horaFim').attr('readonly', 'true')
+                        $('#horaInicio').val(dado.dados.horaInicio)
+                        $('#horaInicio').attr('readonly', 'true')
+                        $('#horaFim').val(dado.dados.horaFim)
+                        $('#horaFim').attr('readonly', 'true')
                         $('#descricaoEvento').val(dado.dados.descricaoEvento)
                         $('#descricaoEvento').attr('readonly', 'true')
 
@@ -43,11 +43,16 @@ $(document).ready(function() {
                         }
                         $('#situacao').append(`<option value="">${sit}</option>`)
                         $('#situacao').attr('readonly', 'true')
-                            // var selectedOption = $("input:radio[name=certificacao]:checked").val()
-                            // alert(selectedOption)
-                            // certifica()
-                        $('.certi').val(dado.dados.certificacao)
-                        $('.certi').attr('readonly', 'true')
+
+                        $('#certificacao').empty()
+                        var cert
+                        if (dado.dados.certificacao == "1") {
+                            cert = "Sim"
+                        } else if (dado.dados.certificacao == "2") {
+                            cert = "Não"
+                        }
+                        $('#certificacao').append(`<option value="">${cert}</option>`)
+                        $('#certificacao').attr('readonly', 'true')
 
 
                     })

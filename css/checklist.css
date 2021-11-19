@@ -8,7 +8,7 @@
 
 #wr {
     width: 100%;
-    min-height: 100vh;
+    min-height: 10%;
     background: #6c5ce7;
     display: flex;
     justify-content: center;
@@ -24,14 +24,14 @@
     margin: 20px;
 }
 
-.wr .title {
+.wr .titulo {
     font-weight: 800;
     text-align: center;
     font-size: 2rem;
     color: #111;
 }
 
-.wr .inputFields {
+.wr .campos {
     margin: 25px 0;
     display: flex;
     justify-content: space-between;
@@ -39,7 +39,7 @@
     height: 50px;
 }
 
-.wr .inputFields input[type="text"] {
+.wr .campos input[type="text"] {
     border: 1px solid rgba(0, 0, 0, .3);
     outline: none;
     width: calc(100% - 60px);
@@ -50,11 +50,11 @@
     transition: .3s;
 }
 
-.wr .inputFields input[type="text"]:focus {
+.wr .campos input[type="text"]:focus {
     border-color: #6c5ce7;
 }
 
-.wr .inputFields button.btn {
+.wr .campos button.btn {
     width: 50px;
     height: 100%;
     background: #6c5ce7;
@@ -69,7 +69,7 @@
     transition: .3s;
 }
 
-.wr .inputFields button.btn:hover {
+.wr .campos button.btn:hover {
     opacity: 1;
 }
 
