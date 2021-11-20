@@ -1,70 +1,65 @@
-<div class="wr" id="wr">
-    <h2 class="titulo">Todo List App</h2>
-    <div class="campos">
-        <input type="text" id="taskValue" placeholder="Insira o objeto da checklist">
-        <button type="submit" id="addBtn" class="btn"><i class="fa fa-plus"></i></button>
+<form id="form-checklist" enctype="multipart/form-data">
+    <!--<form name="toDoList">-->
+    <input type="hidden" name="idChecklist" id="idChecklist">
+    <div class="form-group row">
+        <label class="col-12 col-md-3">Evento</label>
+        <select name="idEvento" id="idEvento" class="form-control col-12 col-md-8"></select>
     </div>
-    <div class="conteudo">
+    <div class="form-group row">
+        <label class="col-12 col-md-3">Necessidade</label>
+        <input type="text" id="objeto" name="objeto" placeholder="Insira a necessidade..." class="form-control col-10 col-md-7">
+
+        <!--<input type="text" name="objeto"/>-->
+</form>
+<div id="button"><i class="fa fa-plus"></i></div>
+</div>
+<div class="form-group">
+    <ol></ol>
+</div>
+<!-- 
+<div class="form-group row">
+    <label class="col-3">Evento</label>
+    <select name="idEvento" id="idEvento" class="form-control col-8"></select>
+</div> -->
+<!-- <div class="row form-group">
+    <label class="col-3">Necessidade</label>
+    <input type="text" id="taskValue" name="objeto" placeholder="Insira a necessidade..." class="form-control col-10 col-md-7"> -->
+<!-- <input type="text" name="objeto" id="objeto" class="form-control col-7"> 
+    <button type="submit" id="addBtn" class="btn col-1"><i class="fa fa-plus"></i></button>
+        <button type="button" id="add-campo" class="col-1 btn btn-outline-warning offset-1">+</button> 
+    </div> -->
+<!-- <div class="conteudo">
+    <div class="content">
+    <ul id="necessidade">
         <ul id="tasks">
 
-        </ul>
-    </div>
-</div>
+    </ul>
+</div> -->
 <script>
-    $(document).ready(function() {
-        // Show Tasks
-        function loadTasks() {
-            $.ajax({
-                url: "show-tasks.php",
-                type: "POST",
-                success: function(data) {
-                    $("#tasks").html(data);
+    $(document).ready(
+        function() {
+            $('#button').click(
+                function() {
+                    var toAdd = $('input[name=objeto]').val();
+                    $('ol').append('<li class="col-12 col-md-11">' + toAdd + '</li>');
+                });
+
+            $("input[name=objeto]").keyup(function(event) {
+                if (event.keyCode == 13) {
+                    $("#button").click();
                 }
             });
+
+            $(document).on('dblclick', 'li', function() {
+                $(this).toggleClass('strike').fadeOut('slow');
+            });
+
+            $('input').focus(function() {
+                $(this).val('');
+            });
+
+            $('ol').sortable();
+
         }
-
-        loadTasks();
-
-        // Add Task
-        $("#addBtn").on("click", function(e) {
-            e.preventDefault();
-
-            var task = $("#taskValue").val();
-
-            $.ajax({
-                url: "add-task.php",
-                type: "POST",
-                data: {
-                    task: task
-                },
-                success: function(data) {
-                    loadTasks();
-                    $("#taskValue").val('');
-                    if (data == 0) {
-                        alert("Something wrong went. Please try again.");
-                    }
-                }
-            });
-        });
-
-        // Remove Task
-        $(document).on("click", "#removeBtn", function(e) {
-            e.preventDefault();
-            var id = $(this).data('id');
-
-            $.ajax({
-                url: "remove-task.php",
-                type: "POST",
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    loadTasks();
-                    if (data == 0) {
-                        alert("Something wrong went. Please try again.");
-                    }
-                }
-            });
-        });
-    });
+    );
 </script>
