@@ -9,17 +9,17 @@ $(document).ready(function() {
         $('.modal-body').load('src/checklist/visao/checklist.html', function() {
 
 
-            // $.ajax({
-            //     type: 'POST',
-            //     dataType: 'json',
-            //     assync: true,
-            //     url: 'src/tipo-fornecedor/model/all-tipo_fornecedor.php',
-            //     success: function(dados) {
-            //         for (const dado of dados) {
-            //             $('#tipo_fornecedor_idTipoFornecedor').append(`<option value="${dado.idTipoFornecedor}">${dado.NomeTipoFornecedor}</option>`)
-            //         }
-            //     }
-            // })
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                assync: true,
+                url: 'src/evento/modelo/all-evento.php',
+                success: function(dados) {
+                    for (const dado of dados) {
+                        $('#idEvento').append(`<option value="${dado.idEvento}">${dado.nome}</option>`)
+                    }
+                }
+            })
         })
 
         $('.btn-save').show()

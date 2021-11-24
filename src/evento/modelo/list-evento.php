@@ -44,7 +44,7 @@
     $resultado = $pdo->query($sql);
     $dados = array();
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-        $dados[] = array_map(null, $row);
+        $dados[] = array_map('utf8_encode', $row);
     }
     //Monta o objeto json para retornar ao DataTable
     $json_data = array(

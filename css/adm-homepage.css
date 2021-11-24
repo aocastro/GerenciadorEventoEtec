@@ -307,3 +307,14 @@ i {
 
 
 /* status css */
+
+
+/*css visible*/
+
+.visible {
+    visibility: visible;
+}
+
+.not-visible {
+    visibility: hidden;
+}
