@@ -8,6 +8,7 @@
     <title>Iniciar Sessão</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="libs/fontAwesome/css/all.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
 </head>
@@ -249,17 +250,18 @@
     .logo {
         margin-bottom: 5%;
     }
+
+ 
 </style>
 
 <body>
+ 
     <img src="img/logo.png" alt="" class="logo">
+
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form id="cad">
                 <h1>Cadastre-se</h1>
-                <!-- <div class="social-container">
-                    <a href="#" class="social"><i class="fas fa-arrow-left"></i></a>
-                </div> -->
                 <span>Use seu email para registrar</span>
                 <input type="text" name="nome" id="nome" placeholder="Nome" />
                 <input type="text" name="cpf" id="cpf" onkeypress="mascaraCPF(this)" placeholder="CPF" maxlength="14" />
@@ -273,10 +275,8 @@
         </div>
         <div class="form-container sign-in-container">
             <form id="login">
+            <a href="index.html"><i class='bx bx-arrow-back' style='color:#d60202'  ></i></a>
                 <h1>Login</h1>
-                <!-- <div class="social-container">
-                    <a href="#" class="social"><i class="fas fa-arrow-left"></i></a>
-                </div> -->
                 <span>Use sua conta email</span>
                 <input type="email" name="email" id="email" placeholder="Email" />
                 <input type="password" name="senha" id="senha" placeholder="Senha" />
@@ -297,7 +297,6 @@
                     <button class="ghost" id="signUp">Cadastre-se</button>
                 </div>
             </div>
-
         </div>
     </div>
 
