@@ -28,11 +28,11 @@
                     <a class="nav-link" href="#"><i class="mdi mdi-home"></i> Home <span class="sr-only"></span></a>
                 </li>
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="src/participante/visao/login-participante.html"><i class="mdi mdi-account"></i> Login</a>
-                </li>
+                </li> -->
             </ul>
-            <button class="botao" type="submit">Entrar</button>
+            <button class="botao" type="submit" onclick="carregar()">Entrar</button>
 
         </div>
     </nav>
@@ -136,6 +136,11 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.js"></script>
+    <script>
+        function carregar() {
+            window.location.href = "login.html";
+        }
+    </script>
 </body>
 
 </html>

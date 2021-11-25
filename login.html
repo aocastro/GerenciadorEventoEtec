@@ -255,16 +255,20 @@
     <img src="img/logo.png" alt="" class="logo">
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form id="cad">
                 <h1>Cadastre-se</h1>
                 <!-- <div class="social-container">
                     <a href="#" class="social"><i class="fas fa-arrow-left"></i></a>
                 </div> -->
                 <span>Use seu email para registrar</span>
                 <input type="text" name="nome" id="nome" placeholder="Nome" />
+                <input type="text" name="cpf" id="cpf" onkeypress="mascaraCPF(this)" placeholder="CPF" maxlength="14" />
+                <input type="text" name="telefone" id="telefone" onkeyup="mascaraTel(this)" maxlength="11" placeholder="Telefone" />
                 <input type="email" id="email" name="email" placeholder="Email" />
                 <input type="password" name="senha" id="senha" placeholder="Senha" />
-                <button class="btn">Cadastrar</button>
+                <input type="hidden" name="idParticipante" id="idParticipante">
+                <input type="hidden" name="idTipo" id="idTipo" value="3">
+                <button class="btn btn-sav">Cadastrar</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -302,8 +306,28 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.js"></script>
     <script src="src/participante/controle/login-participante.js"></script>
+    <script src="src/participante/controle/save-participante.js"></script>
 
     <script>
+        function mascaraCPF(campoCPF) {
+            var cpf = campoCPF.value;
+            if (cpf.length == 3) {
+                cpf = cpf + '.'
+                campoCPF.value = cpf
+            } else if (cpf.length == 7) {
+                cpf = cpf + '.'
+                campoCPF.value = cpf
+            } else if (cpf.length == 11)
+                cpf = cpf + '-'
+            campoCPF.value = cpf
+        }
+
+        function mascaraTel(telefone) {
+            tel = telefone.value;
+            tel = tel.replace(/\D/g, "") // permite digitar apenas numero
+            tel = tel.replace(/(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3")
+            telefone.value = tel;
+        }
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
