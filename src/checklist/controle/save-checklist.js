@@ -3,16 +3,16 @@ $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-participante').serialize()
+        let dados = $('#form-checklist').serialize()
 
-        dados += `&operacao=insert`
+        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/participante/modelo/save-participante.php',
+            url: 'src/checklist/modelo/save-checklist.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'Elevent',
@@ -20,8 +20,11 @@ $(document).ready(function() {
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
-                window.location.href = "adm-homepage.html";
+
+                $('#modal-checklist').modal('hide')
+                $('#table-checklist').DataTable().ajax.reload()
             }
         })
     })
+
 })

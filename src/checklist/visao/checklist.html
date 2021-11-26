@@ -16,6 +16,10 @@
 <div class="form-group">
     <ol></ol>
 </div>
+<div class="form-group row">
+    <label class="col-12 col-md-3">Tarefa</label>
+    <textarea type="text" id="tarefa" name="tarefa" class="form-control col-12 col-md-6 offset-1" rows="3"></textarea>
+</div>
 <!-- 
 <div class="form-group row">
     <label class="col-3">Evento</label>
@@ -41,7 +45,7 @@
             $('#button').click(
                 function() {
                     var toAdd = $('input[name=objeto]').val();
-                    $('ol').append('<li class="col-12 col-md-11">' + toAdd + '</li>');
+                    $('ol').append('<li name="objeto[]" class="col-12 col-md-11">' + toAdd + '</li>');
                 });
 
             $("input[name=objeto]").keyup(function(event) {
