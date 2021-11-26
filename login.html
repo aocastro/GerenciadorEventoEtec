@@ -250,17 +250,15 @@
     .logo {
         margin-bottom: 5%;
     }
-
- 
 </style>
 
 <body>
- 
+
     <img src="img/logo.png" alt="" class="logo">
 
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form id="cad">
+            <form id="form-participante" enctype="multipart/form-data">
                 <h1>Cadastre-se</h1>
                 <span>Use seu email para registrar</span>
                 <input type="text" name="nome" id="nome" placeholder="Nome" />
@@ -270,12 +268,12 @@
                 <input type="password" name="senha" id="senha" placeholder="Senha" />
                 <input type="hidden" name="idParticipante" id="idParticipante">
                 <input type="hidden" name="idTipo" id="idTipo" value="3">
-                <button class="btn btn-sav">Cadastrar</button>
+                <button class="btn btn-save">Cadastrar</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form id="login">
-            <a href="index.html"><i class='bx bx-arrow-back' style='color:#d60202'  ></i></a>
+            <form id="login" enctype="multipart/form-data">
+                <a href="index.html"><i class='bx bx-arrow-back' style='color:#d60202'  ></i></a>
                 <h1>Login</h1>
                 <span>Use sua conta email</span>
                 <input type="email" name="email" id="email" placeholder="Email" />
@@ -305,7 +303,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="libs/sweetAlert/dist/sweetalert2.js"></script>
     <script src="src/participante/controle/login-participante.js"></script>
-    <script src="src/participante/controle/save-participante.js"></script>
+    <script src="src/participante/controle/save-cad.js"></script>
 
     <script>
         function mascaraCPF(campoCPF) {

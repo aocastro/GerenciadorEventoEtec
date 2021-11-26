@@ -20,8 +20,8 @@ $(document).ready(function() {
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
+                window.location.href = "adm-homepage.html";
             }
         })
     })
-
 })
