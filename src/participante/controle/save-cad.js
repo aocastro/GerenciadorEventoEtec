@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-participante').serialize()
+        let dados = $('#cad').serialize()
 
         dados += `&operacao=insert`
 
@@ -15,12 +15,13 @@ $(document).ready(function() {
             url: 'src/participante/modelo/save-participante.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'Elevent',
-                    text: dados.mensagem,
-                    icon: dados.tipo,
-                    confirmButtonText: 'OK'
-                })
-                window.location.href = "adm-homepage.html";
+                        title: 'Elevent',
+                        text: dados.mensagem,
+                        icon: dados.tipo,
+                        confirmButtonText: 'OK'
+                    })
+                    // console.log(dados)
+                    // window.location.href = "adm-homepage.html";
             }
         })
     })

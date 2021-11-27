@@ -14,7 +14,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'Nome do Evento',
+                "data": 'idEvento',
                 "className": 'text-center'
             },
             {

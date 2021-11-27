@@ -22,7 +22,7 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO checklist (objeto) VALUES (:objeto)');
+                $stmt = $pdo->prepare('INSERT INTO checklist (objeto, tarefa) VALUES (:objeto, :tarefa)');
                 $stmt->execute(array(
                     ':objeto' => $requestData['objeto'],
                     ':tarefa' => $requestData['tarefa']
@@ -41,39 +41,31 @@
                 }
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Fornecedor cadastrado com sucesso.'
+                    "mensagem" => 'Checklist cadastrado com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o cadastro do fornecedor.'.$e
+                    "mensagem" => 'Não foi possível efetuar o cadastro da checklist.'.$e
                 );
             }
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare("UPDATE fornecedor SET nome=:nome, email=:email, telefone=:telefone, cep=:cep, rua=:rua, bairro=:bairro, cidade=:cidade, uf=:uf, numero=:numero, tipo_fornecedor_idTipoFornecedor=:tipo_fornecedor_idTipoFornecedor WHERE idFornecedor=:id");
+                $stmt = $pdo->prepare("UPDATE evento SET objeto=:objeto, tarefa=:tarefa WHERE idChecklist=:id");
                 $stmt->execute(array(
-                    ':id' => $idFornecedor,
-                    ':nome' => $requestData['nome'],
-                    ':email' => $requestData['email'],
-                    ':telefone' =>$requestData['telefone'],
-                    ':cep' => $requestData['cep'],
-                    ':rua' => $requestData['rua'],
-                    ':bairro' => $requestData['bairro'],
-                    ':cidade' => $requestData['cidade'],
-                    ':uf' => $requestData['uf'],
-                    ':numero' => $requestData['numero'],
-                    ':tipo_fornecedor_idTipoFornecedor' => $requestData['tipo_fornecedor_idTipoFornecedor']
+                    ':id' => $idChecklist,
+                    ':objeto' => $requestData['objeto'],
+                    ':tarefa' => $requestData['tarefa']
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Fornecedor atualizado com sucesso!'
+                    "mensagem" => 'Checklist atualizado com sucesso!'
                 );
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar a alteração do fornecedor.'.$e
+                    "mensagem" => 'Não foi possível efetuar a alteração da checklist.'.$e
                 );
             }
         }
