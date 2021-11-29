@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#table-tipo').DataTable({
+    $('#table-checklist').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {

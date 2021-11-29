@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="navbar-btn bg-light">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <button class="btn btn-danger d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html"><i class="far fa-hand-point-left"></i> Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="header2 ">
+    <div class="text-box">
+        <h1 class="heading-primary">
+            <span class="heading-primary-main">Use o Elevent como aplicativo</span>
+            <span class="heading-primary-sub">Clique no botão para baixar</span>
+        </h1>
+        <a href="#" class="btn btn-white btn-animated">Baixe o Elevent aqui!</a>
+    </div>
+</header>
+<!-- jumbotron fim -->
+<main role="main" class="container">
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-danger rounded shadow-sm ">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Eventos Próximos</h6>
+        </div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Eventos</h6>
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Nome completo</strong>
+                    <button class="botao">Inscrever-se</button>
+                </div>
+                <span class="d-block"><a href="">Detalhes</a></span>
+            </div>
+        </div>
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Nome do evento</strong>
+                    <button class="botao">Inscrever-se</button>
+                </div>
+                <span class="d-block"><a href="">Detalhes</a></span>
+            </div>
+        </div>
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Nome do evento</strong>
+                    <button class="botao">Inscrever-se</button>
+                </div>
+                <span class="d-block"><a href="">Detalhes</a></span>
+            </div>
+        </div>
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Nome do evento</strong>
+                    <button class="botao">Inscrever-se</button>
+                </div>
+                <span class="d-block"><a href="">Detalhes</a></span>
+            </div>
+        </div>
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Nome do evento</strong>
+                    <button class="botao">Inscrever-se</button>
+                </div>
+                <span class="d-block"><a href="">Detalhes</a></span>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#sidebarCollapse').on('click', function() {
+            $('#sidebar').toggleClass('active');
+            $(this).toggleClass('active');
+        });
+        $('#participante').show()
+        $('#fornecedor').show()
+    });
+</script>

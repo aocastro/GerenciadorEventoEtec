@@ -7,7 +7,7 @@
     </div>
     <div class="form-group row">
         <label class="col-12 col-md-3">Necessidade</label>
-        <input type="text" id="objeto" name="objeto" placeholder="Insira a necessidade..." class="form-control col-10 col-md-7">
+        <input type="text" id="objeto" name="itens" placeholder="Insira a necessidade..." class="form-control col-10 col-md-7">
 
         <!--<input type="text" name="objeto"/>-->
 </form>
@@ -44,11 +44,11 @@
         function() {
             $('#button').click(
                 function() {
-                    var toAdd = $('input[name=objeto]').val();
+                    var toAdd = $('input[name=itens]').val();
                     $('ol').append('<li name="objeto[]" class="col-12 col-md-11">' + toAdd + '</li>');
                 });
 
-            $("input[name=objeto]").keyup(function(event) {
+            $("input[name=itens]").keyup(function(event) {
                 if (event.keyCode == 13) {
                     $("#button").click();
                 }

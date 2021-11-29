@@ -24,5 +24,24 @@ $(document).ready(function() {
                     // window.location.href = "adm-homepage.html";
             }
         })
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            assync: true,
+            data: dados,
+            url: 'src/participante/modelo/login-participante.php',
+            success: function(dados) {
+                if (dados.tipo === 'success') {
+                    $(location).attr('href', 'adm-homepage.html');
+                } else {
+                    Swal.fire({
+                        title: 'Elevent',
+                        text: dados.mensagem,
+                        icon: dados.tipo,
+                        confirmButtonText: 'OK'
+                    })
+                }
+            }
+        })
     })
 })

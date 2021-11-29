@@ -52,7 +52,7 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare("UPDATE evento SET objeto=:objeto, tarefa=:tarefa WHERE idChecklist=:id");
+                $stmt = $pdo->prepare("UPDATE checklist SET objeto=:objeto, tarefa=:tarefa WHERE idChecklist=:id");
                 $stmt->execute(array(
                     ':id' => $idChecklist,
                     ':objeto' => $requestData['objeto'],
