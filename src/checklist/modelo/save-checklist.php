@@ -6,9 +6,16 @@
     // Obter os dados enviados do formulário via $_REQUEST
     $requestData = $_REQUEST;
 
-    // Verificação de campo obrigatórios do formulário
-    if(empty($requestData['objeto'])){
-// Caso a variável venha vazia eu gero um retorno de erro do mesmo
+    // $indice = count(array_filter($requestData['objeto']));
+
+    // echo $indice;
+    
+    // for($i=0; $i<$indice ;$i++){
+    //     echo $requestData['objeto'][$i];
+    // }
+
+    if(empty($requestData['tarefa'])){
+        // Caso a variável venha vazia eu gero um retorno de erro do mesmo
         $dados = array(
             "tipo" => 'error',
             "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s). '.$e
@@ -26,26 +33,21 @@
                 while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
                     $IDC = $resultado['idChecklist'];
                 }
-                // $indice = count(array_filter($requestData['idEvento']));
+
                 $indice = count(array_filter($requestData['objeto']));
                 for($i=0; $i<$indice ;$i++){
                     $stmt = $pdo -> prepare('INSERT INTO checklist (objeto, tarefa) VALUES (:objeto, :tarefa)');
                     $stmt -> execute(array(
-                    ':objeto' => $requestData['objeto'][$i],
-                    ':tarefa' =>   $requestData['tarefa']
+                        ':objeto' => utf8_decode($requestData['objeto'][$i]),
+                        ':tarefa' => utf8_decode($requestData['tarefa'])
                     ));
-                   
                 }
-                // $stmt = $pdo->prepare('INSERT INTO checklist (tarefa, objeto) VALUES (:tarefa, :objeto)');
-                // $stmt->execute(array(
-
-                //     ':objeto' => $requestData['objeto'][$i],
-                //     ':tarefa' => $requestData['tarefa']
-                // ));
+                
                 $dados = array(
                     "tipo" => 'success',
                     "mensagem" => 'Checklist cadastrado com sucesso.'
                 );
+            
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
@@ -73,6 +75,6 @@
             }
         }
     }
-
+        
     // Converter um array ded dados para a representação JSON
     echo json_encode($dados);

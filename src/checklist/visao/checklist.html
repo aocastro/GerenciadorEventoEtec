@@ -1,83 +1,34 @@
 <form id="form-checklist" enctype="multipart/form-data">
-    <!--<form name="toDoList">-->
     <input type="hidden" name="idChecklist" id="idChecklist">
     <div class="form-group row">
         <label class="col-12 col-md-3">Evento</label>
         <select name="idEvento" id="idEvento" class="form-control col-12 col-md-8"></select>
     </div>
     <div class="form-group row">
-        <label class="col-12 col-md-3">Necessidade</label>
-        <!-- <input type="text" id="itens" name="itens" placeholder="Insira a necessidade..." class="form-control col-10 col-md-6"> -->
-        <input type="text" name="objeto[]" id="objeto" class="form-control col-10 col-md-6">
-        <div id="button" class="offset-1"><i class="fa fa-plus"></i></div>
-        <!-- <input type="text" name="objeto[]" id="objeto" class="form-control">
+        <div class="col-12 col-sm-8 col-md-8">
+            <label>Necessidade</label>
+        </div>
+        <div class="col-12 col-sm-4 col-md-4">
+            <button class="btn btn-primary btn-block btn-add"><i class="fa fa-plus"></i> Adicionar</button>
+        </div>
+    </div>
+    <div id="issues" class="form-group">
         <input type="text" name="objeto[]" id="objeto" class="form-control">
-        <input type="text" name="objeto[]" id="objeto" class="form-control">
-        <input type="text" name="objeto[]" id="objeto" class="form-control">
-        <input type="text" name="objeto[]" id="objeto" class="form-control"> -->
-
-        <!--<input type="text" name="objeto"/>-->
+    </div>
+    </div>
+    <div class="form-group testess">
+    </div>
+    <div class="form-group row">
+        <label class="col-12 col-md-2">Tarefa</label>
+        <textarea type="text" id="tarefa" name="tarefa" class="form-control col-12 col-md-8 offset-1" rows="3"></textarea>
+    </div>
 </form>
-</div>
-<div class="form-group testess">
-</div>
-<div class="form-group row">
-    <label class="col-12 col-md-2">Tarefa</label>
-    <textarea type="text" id="tarefa" name="tarefa" class="form-control col-12 col-md-8 offset-1" rows="3"></textarea>
-</div>
-<!-- 
-<div class="form-group row">
-    <label class="col-3">Evento</label>
-    <select name="idEvento" id="idEvento" class="form-control col-8"></select>
-</div> -->
-<!-- <div class="row form-group">
-    <label class="col-3">Necessidade</label>
-    <input type="text" id="taskValue" name="objeto" placeholder="Insira a necessidade..." class="form-control col-10 col-md-7"> -->
-<!-- <input type="text" name="objeto" id="objeto" class="form-control col-7"> 
-    <button type="submit" id="addBtn" class="btn col-1"><i class="fa fa-plus"></i></button>
-        <button type="button" id="add-campo" class="col-1 btn btn-outline-warning offset-1">+</button> 
-    </div> -->
-<!-- <div class="conteudo">
-    <div class="content">
-    <ul id="necessidade">
-        <ul id="tasks">
 
-    </ul>
-</div> -->
-<script>
-    $(document).ready(
-        function() {
-            $('#button').click(
-                function() {
-                    $('.testess').append(`<input type="text" name="objeto[]" id="objeto" class="form-control col-10 col-md-6 offset-3">`)
-                })
-        }
-    )
-
-    //                 var toAdd = $('input[name=itens]').val();
-    //                 $('.testess').append(`
-    //                 <div class="alert alert-secondary aler col-12 col-md-11">${toAdd}</div>
-    //                 <input type="hidden" name="objeto[]" value="${toAdd}">
-    //                 `);
-    //                 // <input name="objeto[]" class="col-12 col-md-11" value="' + toAdd + '">
-    //             });
-
-    //         $("input[name=itens]").keyup(function(event) {
-    //             if (event.keyCode == 13) {
-    //                 $("#button").click();
-    //             }
-    //         });
-
-    //         $(document).on('dblclick', '.aler', function() {
-    //             $(this).toggleClass('strike').fadeOut('slow');
-    //         });
-
-    //         $('input').focus(function() {
-    //             $(this).val('');
-    //         });
-
-    //         $('.testess').sortable();
-
-    //     }
-    // );
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.btn-add').click(function(e) {
+            e.preventDefault()
+            $('#issues').append(`<input type="text" name="objeto[]" id="objeto" class="form-control mt-2">`)
+        })
+    })
 </script>

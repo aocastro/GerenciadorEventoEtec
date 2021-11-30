@@ -7,6 +7,8 @@ $(document).ready(function() {
 
         dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
+        console.log(dados)
+
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -22,7 +24,7 @@ $(document).ready(function() {
                 })
 
                 $('#modal-checklist').modal('hide')
-                $('#table-checklist').DataTable().ajax.reload()
+                    // $('#table-checklist').DataTable().ajax.reload()
             }
         })
     })
