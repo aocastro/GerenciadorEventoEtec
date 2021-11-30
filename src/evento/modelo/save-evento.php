@@ -24,11 +24,11 @@
             try{
                 $stmt = $pdo->prepare('INSERT INTO evento (nome, dataE, horaInicio, horaFim, descricaoEvento, situacao, certificacao) VALUES (:nome, :dataE, :horaInicio, :horaFim, :descricaoEvento, :situacao, :certificacao)');
                 $stmt->execute(array(
-                    ':nome' => $requestData['nome'],
+                    ':nome' => utf8_decode($requestData['nome']),
                     ':dataE' => $requestData['dataE'],
                     ':horaInicio' => $requestData['horaInicio'],
                     ':horaFim' => $requestData['horaFim'],
-                    ':descricaoEvento' => $requestData['descricaoEvento'],
+                    ':descricaoEvento' => utf8_decode($requestData['descricaoEvento']),
                     ':situacao' => $requestData['situacao'],
                     ':certificacao' => $requestData['certificacao']
                 ));
@@ -49,11 +49,11 @@
                 $stmt = $pdo->prepare("UPDATE evento SET nome=:nome, dataE=:dataE, horaInicio=:horaInicio, horaFim=:horaFim, descricaoEvento=:descricaoEvento, situacao=:situacao, certificacao=:certificacao WHERE idEvento=:id");
                 $stmt->execute(array(
                     ':id' => $idEvento,
-                    ':nome' => $requestData['nome'],
+                    ':nome' => utf8_decode($requestData['nome']),
                     ':dataE' => $requestData['dataE'],
                     ':horaInicio' => $requestData['horaInicio'],
                     ':horaFim' => $requestData['horaFim'],
-                    ':descricaoEvento' => $requestData['descricaoEvento'],
+                    ':descricaoEvento' => utf8_decode($requestData['descricaoEvento']),
                     ':situacao' => $requestData['situacao'],
                     ':certificacao' => $requestData['certificacao']
                 ));
