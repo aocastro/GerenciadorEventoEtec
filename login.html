@@ -11,6 +11,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="libs/sweetAlert/dist/sweetalert2.css">
     <link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -251,6 +252,17 @@
         margin-bottom: 5%;
     }
 </style>
+<script>
+    if ('servicerWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js').then(function(registration) {
+                console.log('Service Worker registrado com sucesso, com escopo: ', registration.scope)
+            }, function(err) {
+                console.log('Erro ao registrar o Service Worker: ', err)
+            })
+        })
+    }
+</script>
 
 <body>
 

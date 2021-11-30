@@ -17,18 +17,19 @@
     opacity: .8;
 }
 
-ol li {
+.alert {
     padding: .5%;
 }
 
-ol li:nth-child(even) {
+
+/* .alert:nth-child(even) {
     background: #dfdfdf;
-}
+} */
 
 .strike {
     text-decoration: line-through;
 }
 
-li:hover {
+.alert:hover {
     cursor: pointer;
 }

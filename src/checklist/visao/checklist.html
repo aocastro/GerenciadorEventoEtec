@@ -7,18 +7,17 @@
     </div>
     <div class="form-group row">
         <label class="col-12 col-md-3">Necessidade</label>
-        <input type="text" id="objeto" name="itens" placeholder="Insira a necessidade..." class="form-control col-10 col-md-7">
+        <input type="text" id="objeto" name="objeto" placeholder="Insira a necessidade..." class="form-control col-10 col-md-6">
 
         <!--<input type="text" name="objeto"/>-->
 </form>
-<div id="button"><i class="fa fa-plus"></i></div>
+<div id="button" class="offset-1"><i class="fa fa-plus"></i></div>
 </div>
-<div class="form-group">
-    <ol></ol>
+<div class="form-group testess">
 </div>
 <div class="form-group row">
-    <label class="col-12 col-md-3">Tarefa</label>
-    <textarea type="text" id="tarefa" name="tarefa" class="form-control col-12 col-md-6 offset-1" rows="3"></textarea>
+    <label class="col-12 col-md-2">Tarefa</label>
+    <textarea type="text" id="tarefa" name="tarefa" class="form-control col-12 col-md-8 offset-1" rows="3"></textarea>
 </div>
 <!-- 
 <div class="form-group row">
@@ -44,17 +43,21 @@
         function() {
             $('#button').click(
                 function() {
-                    var toAdd = $('input[name=itens]').val();
-                    $('ol').append('<li name="objeto[]" class="col-12 col-md-11">' + toAdd + '</li>');
+                    var toAdd = $('input[name=objeto]').val();
+                    $('.testess').append(`
+                    <div class="alert alert-secondary aler col-12 col-md-11">${toAdd}</div>
+                    <input type="hidden" name="objeto[]" value="${toAdd}">
+                    `);
+                    // <input name="objeto[]" class="col-12 col-md-11" value="' + toAdd + '">
                 });
 
-            $("input[name=itens]").keyup(function(event) {
+            $("input[name=objeto]").keyup(function(event) {
                 if (event.keyCode == 13) {
                     $("#button").click();
                 }
             });
 
-            $(document).on('dblclick', 'li', function() {
+            $(document).on('dblclick', '.aler', function() {
                 $(this).toggleClass('strike').fadeOut('slow');
             });
 
@@ -62,7 +65,7 @@
                 $(this).val('');
             });
 
-            $('ol').sortable();
+            $('.testess').sortable();
 
         }
     );

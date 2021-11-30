@@ -1,0 +1,35 @@
+{
+    "name": "Gerenciador de Eventos EtecLins",
+    "short_name": "ELEVENT",
+    "start_url": "login.html",
+    "icons": [{
+            "src": "img/72x72.png",
+            "sizes": "72x72",
+            "types": "image/png"
+        },
+        {
+            "src": "img/96x96.png",
+            "sizes": "96x96",
+            "types": "image/png"
+        },
+        {
+            "src": "img/128x128.png",
+            "sizes": "128x128",
+            "types": "image/png"
+        },
+        {
+            "src": "img/256x256.png",
+            "sizes": "256x256",
+            "types": "image/png"
+        },
+        {
+            "src": "img/512x512.png",
+            "sizes": "512x512",
+            "types": "image/png"
+        }
+    ],
+    "theme-color": "#f03c18",
+    "background-color": "#fff",
+    "display": "fullscreen",
+    "orientation": "any"
+}

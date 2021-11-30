@@ -16,7 +16,7 @@
     if($resultado){
         $resultQuery = array();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $resultQuery = array_map(null, $row);
+            $resultQuery = array_map('utf8_encode', $row);
         }
         $dados = array(
             'tipo' => 'success',
