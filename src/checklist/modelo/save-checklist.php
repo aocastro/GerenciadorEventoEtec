@@ -22,23 +22,26 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO checklist (objeto, tarefa) VALUES (:objeto, :tarefa)');
-                $stmt->execute(array(
-                    ':objeto' => $requestData['objeto'],
-                    ':tarefa' => $requestData['tarefa']
-                ));
                 $sql = $pdo->query("SELECT * FROM checklist ORDER BY idChecklist DESC LIMIT 1");
                 while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
                     $IDC = $resultado['idChecklist'];
                 }
-                $indice = count(array_filter($requestData['idEvento']));
+                // $indice = count(array_filter($requestData['idEvento']));
+                $indice = count(array_filter($requestData['objeto']));
                 for($i=0; $i<$indice ;$i++){
-                    $stmt = $pdo -> prepare('INSERT INTO evento_has_checklist (idChecklist, idEvento) VALUES (:h, :i)');
+                    $stmt = $pdo -> prepare('INSERT INTO checklist (objeto, tarefa) VALUES (:objeto, :tarefa)');
                     $stmt -> execute(array(
-                        ':h' => $IDC,
-                        ':i' => $requestData['idEvento'][$i]
+                    ':objeto' => $requestData['objeto'][$i],
+                    ':tarefa' =>   $requestData['tarefa']
                     ));
+                   
                 }
+                // $stmt = $pdo->prepare('INSERT INTO checklist (tarefa, objeto) VALUES (:tarefa, :objeto)');
+                // $stmt->execute(array(
+
+                //     ':objeto' => $requestData['objeto'][$i],
+                //     ':tarefa' => $requestData['tarefa']
+                // ));
                 $dados = array(
                     "tipo" => 'success',
                     "mensagem" => 'Checklist cadastrado com sucesso.'
