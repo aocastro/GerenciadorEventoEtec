@@ -24,7 +24,7 @@
             try{
                 $stmt = $pdo->prepare('INSERT INTO participante (nome, cpf, telefone, email, senha, idTipo) VALUES (:nome,:cpf,:telefone,:email,:senha, :idT)');
                 $stmt->execute(array(
-                    ':nome' => $requestData['nome'],
+                    ':nome' => utf8_decode($requestData['nome']),
                     ':cpf' => $requestData['cpf'],
                     ':telefone' =>$requestData['telefone'],
                     ':email' => $requestData['email'],
@@ -47,7 +47,7 @@
                 $stmt = $pdo->prepare("UPDATE participante SET nome=:nome, cpf=:cpf, telefone=:telefone, email=:email, senha=:senha, idTipo=:idT WHERE idParticipante=:id");
                 $stmt->execute(array(
                     ':id' => $idParticipante,
-                    ':nome' => $requestData['nome'],
+                    ':nome' => utf8_decode($requestData['nome']),
                     ':cpf' => $requestData['cpf'],
                     ':telefone' => $requestData['telefone'],
                     ':email' => $requestData['email'],

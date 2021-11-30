@@ -24,13 +24,13 @@
             try{
                 $stmt = $pdo->prepare('INSERT INTO fornecedor (nome, email, telefone, cep, rua, bairro, cidade, uf, numero, tipo_fornecedor_idTipoFornecedor) VALUES (:nome,:email,:telefone,:cep, :rua, :bairro, :cidade, :uf, :numero, :tipo_fornecedor_idTipoFornecedor)');
                 $stmt->execute(array(
-                    ':nome' => $requestData['nome'],
+                    ':nome' => utf8_decode($requestData['nome']),
                     ':email' => $requestData['email'],
                     ':telefone' =>$requestData['telefone'],
                     ':cep' => $requestData['cep'],
-                    ':rua' => $requestData['rua'],
-                    ':bairro' => $requestData['bairro'],
-                    ':cidade' => $requestData['cidade'],
+                    ':rua' => utf8_decode($requestData['rua']),
+                    ':bairro' => utf8_decode($requestData['bairro']),
+                    ':cidade' => utf8_decode($requestData['cidade']),
                     ':uf' => $requestData['uf'],
                     ':numero' => $requestData['numero'],
                     ':tipo_fornecedor_idTipoFornecedor' => $requestData['tipo_fornecedor_idTipoFornecedor']
@@ -51,13 +51,13 @@
                 $stmt = $pdo->prepare("UPDATE fornecedor SET nome=:nome, email=:email, telefone=:telefone, cep=:cep, rua=:rua, bairro=:bairro, cidade=:cidade, uf=:uf, numero=:numero, tipo_fornecedor_idTipoFornecedor=:tipo_fornecedor_idTipoFornecedor WHERE idFornecedor=:id");
                 $stmt->execute(array(
                     ':id' => $idFornecedor,
-                    ':nome' => $requestData['nome'],
+                    ':nome' => utf8_decode($requestData['nome']),
                     ':email' => $requestData['email'],
                     ':telefone' =>$requestData['telefone'],
                     ':cep' => $requestData['cep'],
-                    ':rua' => $requestData['rua'],
-                    ':bairro' => $requestData['bairro'],
-                    ':cidade' => $requestData['cidade'],
+                    ':rua' => utf8_decode($requestData['rua']),
+                    ':bairro' => utf8_decode($requestData['bairro']),
+                    ':cidade' => utf8_decode($requestData['cidade']),
                     ':uf' => $requestData['uf'],
                     ':numero' => $requestData['numero'],
                     ':tipo_fornecedor_idTipoFornecedor' => $requestData['tipo_fornecedor_idTipoFornecedor']
