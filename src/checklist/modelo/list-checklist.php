@@ -11,7 +11,7 @@
     $colunas = $requestData['columns'];
 
     //Preparar o comando sql para obter os dados da categoria
-    $sql = "SELECT idChecklist FROM checklist WHERE 1=1 AND";
+    $sql = "SELECT idChecklist, objeto FROM checklist WHERE 1=1";
 
     //Obter o total de registros cadastrados
     $resultado = $pdo->query($sql);
@@ -23,7 +23,7 @@
         //Montar a expressão lógica que irá compor os filtros
         //Aqui você deverá determinar quais colunas farão parte do filtro
         $sql .= " AND (idChecklist LIKE '$filtro%' ";
-        $sql .= " OR idEvento LIKE '$filtro%') ";
+        $sql .= " OR objeto LIKE '$filtro%') ";
     }
     
     //Obter o total dos dados filtrados

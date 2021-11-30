@@ -20,6 +20,7 @@ $(document).ready(function() {
                         icon: dados.tipo,
                         confirmButtonText: 'OK'
                     })
+                    // $(location).attr('href', 'adm-homepage.html');
                     // console.log(dados)
                     // window.location.href = "adm-homepage.html";
             }

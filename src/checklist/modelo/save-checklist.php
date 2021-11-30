@@ -42,6 +42,22 @@
                         ':tarefa' => utf8_decode($requestData['tarefa'])
                     ));
                 }
+                // Início da busca dos último cadastro efetivado
+                $sql = $pdo->query("SELECT * FROM checklist ORDER BY idChecklist DESC LIMIT 1");
+                
+                while ($resultado = $sql->fetch(PDO::FETCH_ASSOC)) {
+                    $idChecklist = $resultado['idChecklist'];
+                }
+
+                $indice = count(array_filter($requestData['idEvento']));
+
+                for($i=0; $i < $indice; $i++) {
+                    $stmt = $pdo->prepare('INSERT INTO evento_has_checklist (idChecklist, idEvento) VALUES (:a, :b)');
+                    $stmt->execute(array(
+                        ':a' => $idChecklist,
+                        ':b' => $requestData['idEvento'][$i]
+                    ));
+                }
                 
                 $dados = array(
                     "tipo" => 'success',
@@ -60,12 +76,12 @@
                 $stmt = $pdo->prepare("UPDATE checklist SET objeto=:objeto, tarefa=:tarefa WHERE idChecklist=:id");
                 $stmt->execute(array(
                     ':id' => $idChecklist,
-                    ':objeto' => $requestData['objeto'],
+                    ':objeto' => utf8_decode($requestData['objeto']),
                     ':tarefa' => $requestData['tarefa']
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Checklist atualizado com sucesso!'
+                    "mensagem" => 'Evento atualizado com sucesso!'
                 );
             } catch(PDOException $e) {
                 $dados = array(

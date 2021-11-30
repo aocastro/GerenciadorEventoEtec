@@ -24,7 +24,7 @@ $(document).ready(function() {
                 })
 
                 $('#modal-checklist').modal('hide')
-                    // $('#table-checklist').DataTable().ajax.reload()
+                $('#table-checklist').DataTable().ajax.reload()
             }
         })
     })
