@@ -28,19 +28,6 @@ $(document).ready(function() {
                         $('#idChecklist').val(dado.dados.idChecklist)
                         $('#objeto').val(dado.dados.objeto)
                         $('#tarefa').val(dado.dados.tarefa)
-                            // var nomeEvento = dado.dados.idEvento
-                            // $.ajax({
-                            //     type: 'POST',
-                            //     dataType: 'json',
-                            //     url: 'src/evento/modelo/all-evento.php',
-                            //     success: function(dados) {
-                            //         for (const dado of dados) {
-                            //             if (dado.idEvento == nomeEvento) {
-                            //                 $('#idEvento').append(`<option value="${dado.idEvento}">${dado.nome}</option>`)
-                            //             }
-                            //         }
-                            //     }
-                            // })
                     })
                     $('.btn-save').show()
                     $('#modal-checklist').modal('show')

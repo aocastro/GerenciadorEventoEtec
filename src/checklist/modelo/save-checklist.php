@@ -75,13 +75,13 @@
             try{
                 $stmt = $pdo->prepare("UPDATE checklist SET objeto=:objeto, tarefa=:tarefa WHERE idChecklist=:id");
                 $stmt->execute(array(
-                    ':id' => $idChecklist,
+                    ':id' => $IDC,
                     ':objeto' => utf8_decode($requestData['objeto']),
-                    ':tarefa' => $requestData['tarefa']
+                    ':tarefa' => utf8_decode($requestData['tarefa'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Evento atualizado com sucesso!'
+                    "mensagem" => 'Checklist atualizado com sucesso!'
                 );
             } catch(PDOException $e) {
                 $dados = array(
