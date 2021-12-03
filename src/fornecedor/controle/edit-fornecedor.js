@@ -23,6 +23,7 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/fornecedor/visao/form-fornecedor.html', function() {
+                        $('#idFornecedor').val(dado.dados.idFornecedor)
                         $('#nome').val(dado.dados.nome)
                         $('#email').val(dado.dados.email)
                         $('#telefone').val(dado.dados.telefone)
@@ -36,7 +37,6 @@ $(document).ready(function() {
                         $('#uf').val(dado.dados.uf)
                         $('#uf').attr('readonly', 'true')
                         $('#numero').val(dado.dados.numero)
-                        $('#idFornecedor').val(dado.dados.idFornecedor)
                         var nomeSetor = dado.dados.tipo_fornecedor_idTipoFornecedor
                         $.ajax({
                             type: 'POST',

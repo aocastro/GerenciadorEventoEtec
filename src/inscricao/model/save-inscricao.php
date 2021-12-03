@@ -12,14 +12,14 @@
         // Caso não exista campo em vazio, vamos gerar a requisição
         // $idParticipante = isset($requestData['idParticipante']) ? $requestData['idParticipante'] : "";
         $hoje = date('d/m/Y');
-        $hora = time('H:i');
+        $hora = date('H:i');
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : "";
 
         // Verifica se é para cadastra um nvo registro
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO inscricao (idEvento, idParticipante, dataInscricao, horaIncricao) VALUES (:idEvento, :idParticipante, :dataInscricao, :horaIncricao)');
+                $stmt = $pdo->prepare('INSERT INTO inscricao (idEvento, idParticipante, dataInscricao, horaInscricao) VALUES (:idEvento, :idParticipante, :dataInscricao, :horaInscricao)');
                 $stmt->execute(array(
                     ':idEvento' => utf8_decode($requestData['idEvento']),
                     ':idParticipante' => $requestData['idParticipante'],
@@ -28,12 +28,12 @@
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Participante cadastrado com sucesso.'
+                    "mensagem" => 'Inscrição realizada com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o cadastro do participante.'.$e
+                    "mensagem" => 'Não foi possível efetuar a inscrição.'.$e
                 );
             }
     }

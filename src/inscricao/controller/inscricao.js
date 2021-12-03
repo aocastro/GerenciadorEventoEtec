@@ -3,28 +3,34 @@ $(document).ready(function() {
     $('.botao').click(function(e) {
         e.preventDefault()
 
-        $('.text-gray-dark').empty()
-            // $('.media-body').empty()
+        // $('.text-gray-dark').empty()
+        // $('.media-body').empty()
 
-        $('strong').append('Aqui virá o nome do evento!')
+        // $('strong').append('Aqui virá o nome do evento!')
 
         // let dados = $('#form-tipo').serialize()
 
         var dados = `&operacao=insert`
 
         // var nomeEvento = dado.dados.idEvento
-        // $.ajax({
-        //         type: 'POST',
-        //         dataType: 'json',
-        //         url: 'src/evento/modelo/all-evento.php',
-        //         success: function(dados) {
-        //             for (const dado of dados) {
-        //                 if (dado.idEvento == nomeEvento) {
-        //                     $('.text-gray-dark').append(`<input type="hidden" value="${dado.idEvento}">${dado.nome}`)
-        //                 }
-        //             }
-        //         }
-        //     })
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            assync: true,
+            data: dados,
+            url: 'src/inscricao/model/save-inscricao.php',
+            success: function(dados) {
+                Swal.fire({
+                    title: 'Elevent',
+                    text: dados.mensagem,
+                    icon: dados.tipo,
+                    confirmButtonText: 'OK'
+                })
+
+                // $('#modal-participante').modal('hide')
+                // $('#table-participante').DataTable().ajax.reload()
+            }
+        })
 
         // var nomeSetor = dado.dados.tipo_fornecedor_idTipoFornecedor
         //                 $.ajax({
