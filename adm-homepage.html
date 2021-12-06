@@ -198,17 +198,6 @@
                 $('#sidebar').toggleClass('active');
                 $(this).toggleClass('active');
             });
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                assync: true,
-                url: 'src/participante/modelo/tipo-participante.php',
-                success: function(dados) {
-                    if (dados.idT === 3) {
-                        $('.participante').hide()
-                    }
-                }
-            });
         });
     </script>
 

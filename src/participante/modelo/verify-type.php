@@ -2,6 +2,6 @@
 
     session_start();
 
-    $dados = array('idT' => $requestData['idTipo']);
+    $dados = array('tipo' => $_SESSION['idTipo']);
 
     echo json_encode($dados);
