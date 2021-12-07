@@ -17,7 +17,7 @@
         }else{
             $dados = array(
                 'tipo' => 'error',
-                'mensagem' => 'Nome de usuário ou senha errado.'
+                'mensagem' => 'Nome de usuário ou senha errado.'.$e
             );
         }
     }
