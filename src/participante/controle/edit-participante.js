@@ -31,6 +31,22 @@ $(document).ready(function() {
                         $('#idParticipante').val(dado.dados.idParticipante)
                         $('#email').val(dado.dados.email)
                         $('#senha').val(dado.dados.senha)
+                        var tipo = dado.dados.idTipo
+                        $.ajax({
+                            type: 'POST',
+                            dataType: 'json',
+                            assync: false,
+                            url: 'src/tipo-usuario/model/all-tipo.php',
+                            success: function(dados) {
+                                for (const dado of dados) {
+                                    if (dado.idTipo == tipo) {
+                                        $('#idTipo').append(`<option selected value="${dado.idTipo}">${dado.nomeTipo}</option>`)
+                                    } else {
+                                        $('#idTipo').append(`<option value="${dado.idTipo}">${dado.nomeTipo}</option>`)
+                                    }
+                                }
+                            }
+                        })
                     })
                     $('.btn-save').show()
                     $('#modal-participante').modal('show')

@@ -44,14 +44,12 @@ $(document).ready(function() {
                             success: function(dados) {
                                 for (const dado of dados) {
                                     if (dado.idTipo == tipo) {
-                                        $('#idTipo').append(`<option selected value="${dado.idTipo}">${dado.nomeTipo}</option>`)
+                                        $('#idTipo').append(`<option value="${dado.idTipo}">${dado.nomeTipo}</option>`)
                                     }
-                                    //  else {
-                                    // $('#idTipo').append(`<option value="${dado.idTipo}">${dado.NOME}</option>`)
-                                    // }
                                 }
                             }
                         })
+                        $('#idTipo').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
                     $('#modal-participante').modal('show')
